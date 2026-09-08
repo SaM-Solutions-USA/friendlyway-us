@@ -1,0 +1,30 @@
+{
+  "name": "friendlyway-us",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test:legacy-resolver": "node --experimental-strip-types --test tests/resolve-legacy-page.test.mts",
+    "test:content": "node --experimental-strip-types --test tests/content-loader.test.mts",
+    "test:renderer": "node --experimental-strip-types --test tests/page-renderer.test.mts",
+    "test:welcome-banner": "node --experimental-strip-types --test tests/welcome-banner.test.mts",
+    "test:legacy-route": "node --experimental-strip-types --test tests/legacy-route-handler.test.mts",
+    "validate:content": "node --experimental-strip-types scripts/validate-content.mts"
+  },
+  "dependencies": {
+    "next": "^16.3.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "storybook": "^10.6.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.2.2"
+  }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="64" viewBox="0 0 45 64" fill="none">
+  <g id="Kiosk">
+    <g id="Kiosk_2">
+      <path id="Rectangle 652" d="M9 2C9 1.44772 9.44772 1 10 1H36C36.5523 1 37 1.44771 37 2V63H9V2Z" stroke="#f96240" stroke-width="2"></path>
+      <rect id="Rectangle 653" x="13" y="6" width="20" height="36" fill="#f96240" fill-opacity="0.3"></rect>
+      <path id="Line 178" d="M5 63H41" stroke="#f96240" stroke-width="2" stroke-linecap="round"></path>
+    </g>
+  </g>
+</svg>

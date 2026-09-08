@@ -1,0 +1,202 @@
+.block-plans-comparison__headers {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.block-plans-comparison__title {
+    color: #222;
+    margin: auto;
+    font-size: 32px;
+    max-width: 884px;
+    font-weight: 700;
+    line-height: 1.25em;
+    font-family: 'Poppins';
+}
+
+.block-plans-comparison__descr {
+    color: #515C69;
+    max-width: 545px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.375em;
+}
+
+.block-plans-comparison__title
++ .block-plans-comparison__descr {
+    margin-top: 16px;
+}
+
+.block-plans-comparison
+.block-plans-comparison__descr p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.block-plans-comparison
+.block-plans-comparison__descr p + p {
+    margin-top: 0.5em;
+}
+
+.block-plans-comparison
+.block-plans-comparison__descr a {
+    color: var(--accent-color);
+}
+
+.block-plans-comparison__item {
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #2BB6B7;
+}
+
+.block-plans-comparison__item:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.block-plans-comparison__item-head {
+    cursor: pointer;
+    position: relative;
+    padding: 16px 56px 16px 16px;
+}
+
+.block-plans-comparison__item-head:after {
+    top: 16px;
+    content: '';
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    background-size: contain;
+    background-position: center;
+    transition: transform 0.2s ease;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iZmlsbDogdmFyKC0tY2xvc2UtY29sb3IpOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0wLjY4NTQ0IDExLjAwMDFWMTIuOTk5OUwxMC45OTkzIDEyLjk5OTlMMTAuOTk5MyAyMy4zMTM3SDEyLjk5OUwxMi45OTkgMTIuOTk5OUwyMy4zMTI5IDEyLjk5OTlWMTEuMDAwMUwxMi45OTkgMTEuMDAwMUwxMi45OTkgMC42ODYyOTJIMTAuOTk5M0wxMC45OTkzIDExLjAwMDFMMC42ODU0NCAxMS4wMDAxWiIgZmlsbD0iIzIyMjIyMiIgZmlsbC1vcGFjaXR5PSIwLjQiLz4KPC9zdmc+Cg==);
+}
+
+.block-plans-comparison__item_active .block-plans-comparison__item-head {
+    padding-bottom: 0;
+}
+
+.block-plans-comparison__item_active .block-plans-comparison__item-head:after {
+    transform: rotate(45deg);
+}
+
+.block-plans-comparison__item-body {
+    padding: 0 16px 16px;
+}
+
+.block-plans-comparison__item:not(.block-plans-comparison__item_active) .block-plans-comparison__item-body {
+    display: none;
+}
+
+.block-plans-comparison__item-title {
+    color: #222;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33em;
+    font-family: 'Poppins';
+}
+
+.block-plans-comparison__item-table {
+    width: 100%;
+    --check-color: #5EABA1;
+    border-collapse: collapse;
+}
+
+.block-plans-comparison__item-table th {
+    padding: 16px;
+    background-color: #fff;
+}
+
+.block-plans-comparison__item-table td {
+    padding: 8px;
+    font-size: 14px;
+    line-height: 1.42em;
+}
+
+.block-plans-comparison__item-table tbody tr {
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #D5DDE3;
+}
+
+.block-plans-comparison__item-table td:first-child {
+    color: #323436;
+    padding-left: 0;
+    min-width: 185px;
+    font-weight: 600;
+}
+
+.block-plans-comparison__item-table td:not(:first-child) {
+    font-weight: 500;
+    text-align: center;
+}
+
+.block-plans-comparison__item-table th:not(:first-child) {
+    width: 180px;
+    font-weight: 600;
+    line-height: 1.5em;
+    font-family: 'Poppins';
+}
+
+@media (min-width: 768px) {
+    .block-plans-comparison__item-table thead {
+        position: sticky;
+        margin-bottom: 5vh;
+    }
+        
+    .admin-bar .block-plans-comparison__item-table thead {
+        top: calc(var(--header-height) + var(--wp-admin--admin-bar--height, 0px));
+    }
+}
+
+@media (min-width: 992px) {
+    .block-plans-comparison__item-table thead {
+        top: var(--header-height);
+    }
+}
+
+@media (max-width: 991px) {
+    .block-plans-comparison__title {
+        font-size: 28px;
+    }
+    
+    .block-plans-comparison__item-table th:not(:first-child) {
+        width: 140px;
+    }
+}
+
+@media (max-width: 767px) {
+    .block-plans-comparison__item-body {
+        overflow-y: auto;
+    }
+    
+    .block-plans-comparison__item-table {
+        min-width: 784px;
+    }
+}
+
+@media (max-width: 575px) {
+    .block-plans-comparison__item-table {
+        min-width: 585px;
+    }
+}
+
+@media (max-width: 475px) {
+    .block-plans-comparison__headers {
+        margin-bottom: 24px;
+    }
+    
+    .block-plans-comparison__title {
+        font-size: 20px;
+    }
+    
+    .block-plans-comparison__item-title {
+        font-size: 16px;
+    }
+    
+    .block-plans-comparison__item-head:after {
+        width: 20px;
+        height: 20px;
+    }
+}

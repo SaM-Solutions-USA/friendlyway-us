@@ -1,0 +1,192 @@
+.block-media-text__layout {
+    display: flex;
+}
+
+.block-media-text__event {
+    display: flex;
+}
+
+.block-media-text__icons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.block-media-text__icon-item {
+    display: flex;
+}
+
+.block-media-text .block-media-text__descr p {
+    margin: 0;
+    font: inherit;
+}
+
+.block-media-text .block-media-text__descr p + p {
+    margin-top: 0.5em;
+}
+
+.block-media-text__event {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.block-media-text__button {
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+	border-radius: 5px;
+	line-height: 1.5em;
+	display: inline-block;
+	font-family: 'Poppins';
+	padding: 0.625em 1.5625em;
+	text-transform: uppercase;
+	border: 2px solid var(--accent-color);
+}
+
+.block-media-text__button_style_1 {
+	color: #fff;
+	background-color: var(--accent-color);
+}
+
+.block-media-text__button_style_1:hover {
+	color: var(--accent-color);
+	background-color: transparent;
+}
+
+.block-media-text__button_style_2 {
+	color: var(--accent-color);
+	background-color: transparent;
+}
+
+.block-media-text__button_style_2:hover {
+	color: #fff;
+	background-color: var(--accent-color);
+}
+
+/*
+---------------------------------------------------------------------------------*/
+
+.block-media-text.block-media-text_style_1 {
+    padding-bottom: 0;
+}
+
+.block-media-text_style_1 {
+    background: linear-gradient(101deg,#ffe2ce 0%,#fff6d9 100%);
+}
+
+.block-media-text_style_1 .block-media-text__entry {
+    font-weight: 600;
+    line-height: 2em;
+    margin-bottom: 0.5em;
+    color: rgba(18, 18, 18, 0.60);
+    font-family: 'Poppins', sans-serif;
+}
+
+.block-media-text_style_1 .block-media-text__title {
+    color: #121212;
+    font-weight: 700;
+    line-height: 1.33em;
+    margin-bottom: 0.66em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.block-media-text_style_1 .block-media-text__descr {
+    color: #121212;
+    line-height: 1.5em;
+}
+
+.block-media-text_style_1 .block-media-text__icons {
+    gap: 16px 40px;
+    margin-top: 32px;
+}
+
+.block-media-text_style_1 .block-media-text__icon-item {
+    gap: 8px 16px;
+}
+
+.block-media-text_style_1 .block-media-text__icon-descr {
+    line-height: 1.5em;
+}
+
+.block-media-text_style_1 .block-media-text__event {
+    gap: 16px;
+    margin-top: 48px;
+}
+
+@media (min-width: 576px) {
+    .block-media-text_style_1 .block-media-text__title {
+        font-size: 24px;
+    }
+    
+    .block-media-text_style_1 .block-media-text__descr {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .block-media-text_style_1 .block-media-text__icon-item {
+        flex-direction: column;
+        width: calc(33.33% - 40px/3*2);
+    }
+}
+
+@media (min-width: 992px) {
+    .block-media-text_style_1 .block-media-text__right {
+        flex-shrink: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .block-media-text_style_1 .block-media-text__layout {
+        column-gap: 124px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .block-media-text_style_1 .block-media-text__layout {
+        gap: 64px;
+    }
+    
+    .block-media-text_style_1 .block-media-text__button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 991px) {
+    .block-media-text_style_1 .block-media-text__layout {
+        flex-direction: column;
+    }
+    
+    .block-media-text_style_1 .block-media-text__img {
+        margin: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .block-media-text_style_1 .block-media-text__icon-item {
+        align-items: center;
+    }
+    
+    .block-media-text_style_1 .block-media-text__icon-image {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .block-media-text_style_1 .block-media-text__title {
+        font-size: 20px;
+    }
+    
+    .block-media-text_style_1 .block-media-text__descr {
+        font-size: 16px;
+    }
+    
+    .block-media-text_style_1 .block-media-text__icon-descr {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 475px) {
+    .block-media-text_style_1 .block-media-text__event {
+        flex-direction: column;
+    }
+}

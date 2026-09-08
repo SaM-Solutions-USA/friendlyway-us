@@ -1,0 +1,145 @@
+.case-objects {
+	font-size: 20px;
+	font-weight: 600;
+	position: relative;
+	line-height: 1.5em;
+	margin-bottom: 1.75em;
+}
+
+.case-objects__title {
+	font-size: 26px;
+	font-weight: 700;
+	margin-bottom: 0.75em;
+	font-family: 'Poppins', sans-serif;
+}
+
+.case-objects
+.case-objects__carousel
+.owl-stage-outer {
+	margin-left: -15px;
+}
+
+.case-objects__item {
+    height: 100%;
+    width: 390px;
+    padding: 0.75em;
+}
+
+.case-objects__item-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.owl-item.active .case-objects__item-inner {
+    transition: box-shadow .1s ease;
+    box-shadow: 0 2px 20px 0 #0000001a;
+}
+
+.case-objects a.case-objects__item-inner {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.case-objects__item-inner:hover {
+    text-decoration: none;
+}
+
+.case-objects__item-inner:hover {
+    box-shadow: 0 2px 20px 0 #0000002e;
+}
+
+.case-objects__item-picture {
+    height: 75px;
+    padding: 0.75em;
+}
+
+.case-objects
+.case-objects__carousel
+.case-objects__item-img {
+    width: auto;
+	margin-left: 0;
+    max-width: 200px;
+}
+
+.case-objects__item-img {
+    max-height: 100%;
+}
+
+.case-objects__item-content {
+    flex-grow: 1;
+    display: flex;
+	padding: 0.75em;
+    flex-direction: column;
+}
+
+.case-objects__item-cat {
+    font-size: 0.7em;
+	color: rgb(236, 114, 33);
+    text-transform: uppercase;
+}
+
+.case-objects__item-title {
+    flex-grow: 1;
+    font-size: 0.8em;
+	font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.case-objects__item-metadata {
+    flex-grow: 1;
+    display: flex;
+    margin-top: 1em;
+	font-size: 0.7em;
+    align-items: flex-end;
+	color: rgb(11, 107, 204);
+    justify-content: space-between;
+}
+
+@media (max-width: 1199px) {
+	.case-objects__title {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 991px) {
+	.case-objects__title {
+		font-size: 22px;
+	}
+}
+
+@media (max-width: 767px) {
+	.case-objects__title {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 575px) {
+	.case-objects__title {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 475px) {
+	.case-objects {
+		font-size: 18px;
+	}
+	
+    .case-objects__item {
+        width: 250px;
+    }
+	
+    .case-objects__item-picture {
+        height: 65px;
+    }
+	
+    .case-objects .case-objects__carousel .case-objects__item-img {
+        max-width: 175px;
+    }
+	
+    .case-objects__item-metadata {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+}

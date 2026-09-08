@@ -1,0 +1,20 @@
+.block-clients__owl-carousel:not(.owl-loaded) {
+    height: 45px;
+    visibility: hidden;
+}
+
+.block-clients__owl-carousel .owl-stage {
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.block-clients__owl-carousel .owl-item {
+	flex: 0 0 auto;
+}
+
+.block-clients__gallery-img {
+	max-height: 45px;
+	object-fit: contain;
+    object-position: center;
+}
+

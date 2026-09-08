@@ -1,0 +1,140 @@
+.block-cta {
+	font-size: 20px;
+	font-weight: 600;
+	font-family: 'Poppins';
+}
+
+.block-cta__inner {
+	color: #fff;
+	background: #151C2E;
+	border-radius: 0.3em;
+	background-blend-mode: overlay;
+}
+
+.block-cta_style_1 .block-cta__inner {
+    padding: 5vmin 7.5vmin;
+}
+
+.block-cta_style_2 .block-cta__inner {
+    padding: 5vmin;
+}
+
+.block-cta__layout {
+	display: flex;
+	gap: 1.25em 2em;
+}
+
+.block-cta_style_1 .block-cta__title {
+	font-size: 1.25em;
+	line-height: 1.2em;
+}
+
+.block-cta_style_2 .block-cta__title {
+	line-height: 1.4em;
+}
+
+.block-cta_style_1 .block-cta__title + .block-cta__descr {
+    margin-top: 0.75em;
+}
+
+.block-cta_style_2 .block-cta__title + .block-cta__descr {
+    margin-top: 0.25em;
+}
+
+.block-cta .block-cta__descr {
+	word-break: break-word;
+}
+
+.block-cta_style_2 .block-cta__descr {
+	font-weight: 400;
+}
+
+.block-cta .block-cta__descr a,
+.block-cta .block-cta__descr b {
+	color: var(--accent-color);
+}
+
+.block-cta .block-cta__descr p {
+	margin: 0;
+	font-size: inherit;
+}
+
+.block-cta .block-cta__descr p + p {
+	margin-top: 1em;
+}
+
+.block-cta__button {
+	display: inline-block;
+}
+
+.block-cta__button-inner {
+	text-align: center;
+	border-radius: 0.2em;
+	padding: 0.75em 1.75em;
+	border: 2px solid transparent;
+}
+
+.block-cta_style_1 .block-cta__button-inner {
+    border-color: var(--accent-color);
+}
+
+.block-cta_style_2 .block-cta__button-inner {
+    background-color: var(--accent-color);
+}
+
+a.block-cta__button-inner {
+	display: block;
+}
+
+.block-cta__button-name {
+	font-size: 0.8em;
+	text-transform: uppercase;
+}
+
+.block-cta_style_1 .block-cta__button:hover .block-cta__button-inner {
+	background-color: var(--accent-color);
+}
+
+.block-cta_style_2 .block-cta__button:hover .block-cta__button-inner {
+    color: var(--accent-color);
+	background-color: transparent;
+	border-color: var(--accent-color);
+}
+
+@media (max-width: 991px) {
+	.block-cta {
+		font-size: 18px;
+	}
+
+	.block-cta br {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) {
+	.block-cta__layout-left {
+		flex: 1;
+	}
+	
+	.block-cta__layout-right {
+		max-width: 275px;
+	}
+}
+
+@media (max-width: 767px) {
+	.block-cta__layout {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 575px) {
+	.block-cta {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 475px) {
+    .block-cta__button {
+        width: 100%;
+    }
+}

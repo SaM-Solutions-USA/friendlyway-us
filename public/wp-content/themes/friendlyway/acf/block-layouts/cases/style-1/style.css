@@ -1,0 +1,149 @@
+.block-cases_style_1 {
+    line-height: 1.5;
+}
+
+/* ============================================================================================================== */
+
+.block-cases.block-cases_style_1 p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* ============================================================================================================== */
+
+.block-cases_style_1 .block-cases__title {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ============================================================================================================== */
+
+.block-cases_style_1 .block-cases__descr {
+    font-size: 18px;
+}
+
+.block-cases_style_1 .block-cases__descr:not(:first-child) {
+    margin-top: 16px;
+}
+
+/* ============================================================================================================== */
+
+.block-cases_style_1 .block-cases__terms {
+    display: flex;
+    column-gap: 32px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.block-cases_style_1 .block-cases__terms:not(:first-child) {
+    margin-top: 40px;
+}
+
+.block-cases_style_1 .block-cases__terms::-webkit-scrollbar {
+    display: none;
+}
+
+/* ============================================================================================================== */
+
+.block-cases_style_1 .block-cases__term {
+    color: #121212;
+    flex-shrink: 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+    padding: 0.65em 0;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 4px solid transparent;
+}
+
+.block-cases_style_1 .block-cases__term_active {
+    border-bottom-color: var(--accent-color);
+}
+
+.block-cases_style_1 .block-cases__term:not(.block-cases__term_active) {
+    opacity: 0.7;
+}
+
+/* ============================================================================================================== */
+
+.block-cases_style_1 .block-cases__items {
+    display: flex;
+    gap: 64px 32px;
+    flex-wrap: wrap;
+}
+
+.block-cases_style_1 .block-cases__items:not(:first-child) {
+    margin-top: 32px;
+}
+
+/* ============================================================================================================== */
+
+.block-cases_style_1 .block-cases__item:not(.block-cases__item_active) {
+    display: none;
+}
+
+/* ============================================================================================================== */
+
+.block-cases_style_1 .block-cases__item-image {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.block-cases_style_1 .block-cases__item-img {
+    width: 100%;
+}
+
+/* ============================================================================================================== */
+
+.block-cases_style_1 .block-cases__item-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+    font-family: 'Poppins', sans-serif;
+}
+
+.block-cases_style_1 .block-cases__item-title:not(:first-child) {
+    margin-top: 24px;
+}
+
+.block-cases_style_1 a.block-cases__item-inner .block-cases__item-title {
+    position: relative;
+    padding-right: 24px;
+}
+
+.block-cases_style_1 a.block-cases__item-inner .block-cases__item-title:after {
+    right: 0;
+    top: 0.4em;
+    width: 1em;
+    height: 1em;
+    content: '';
+    position: absolute;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xLjk5OTk1IDcuNTI3OGUtMDVMMTEgNy41MDI1MWUtMDVDMTEuNTUyMiA3LjQ2ODc5ZS0wNSAxMiAwLjQ0Nzc5IDEyIDEuMDAwMDhWMTAuMDAwMUMxMiAxMC41NTI0IDExLjU1MjIgMTEuMDAwMSAxMSAxMS4wMDAxQzEwLjQ0NzcgMTEuMDAwMSA5Ljk5OTk1IDEwLjU1MjQgOS45OTk5NSAxMC4wMDAxTDkuOTk5OTUgMy40MTQyOUwxLjcwNzA2IDExLjcwNzJMMC4yOTI4NDcgMTAuMjkzTDguNTg1NzQgMi4wMDAwN0wxLjk5OTk1IDIuMDAwMDhDMS40NDc2NyAyLjAwMDA4IDAuOTk5OTU0IDEuNTUyMzYgMC45OTk5NTQgMS4wMDAwN0MwLjk5OTk1NCAwLjQ0Nzc5IDEuNDQ3NjcgNy40OTQwOGUtMDUgMS45OTk5NSA3LjUyNzhlLTA1WiIgZmlsbD0iI2Y5NjI0MCIvPgo8L3N2Zz4K);
+}
+
+/* ============================================================================================================== */
+
+@media (min-width: 768px) {
+    .block-cases_style_1 .block-cases__item {
+        width: calc(100%/3 - 32px/3*2);
+    }
+}
+
+@media (max-width: 767px) and (min-width: 576px) {
+    .block-cases_style_1 .block-cases__item {
+        width: calc(50% - 32px/2);
+    }
+}
+
+@media (max-width: 575px) {
+    .block-cases_style_1 .block-cases__item {
+        width: 100%;
+    }
+}

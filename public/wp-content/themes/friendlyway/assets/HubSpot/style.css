@@ -1,0 +1,82 @@
+@font-face {
+	font-weight: 500;
+	font-style: normal;
+	font-display: fallback;
+	font-family: 'Poppins';
+	src: url('/wp-content/themes/friendlyway/fonts/Poppins/Poppins-Medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-weight: 600;
+	font-style: normal;
+	font-display: fallback;
+	font-family: 'Poppins';
+	src: url('/wp-content/themes/friendlyway/fonts/Poppins/Poppins-SemiBold.woff2') format('woff2');
+}
+
+:root {
+    --accent-color: #f96240;
+}
+
+.hs-form a:link,
+.hs-form a:active {
+    color: var(--accent-color);
+}
+
+.hs-form a:visited,
+.hs-form a:hover {
+    color: var(--accent-color);
+}
+
+.hs-form .hs-input {
+    font-family: 'Open Sans';
+}
+
+.hs-form .actions {
+    margin: 24px 0 0;
+    padding: 0 0 8px;
+}
+
+.hs-form .hs-button {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.hs-form .hs-button,
+.hs-form .hs-button:hover,
+.hs-form .hs-button:hover:not(.inactive),
+.hs-form .hs-button:focus,
+.hs-form .hs-button:active,
+.hs-form .hs-button:active:not(.inactive):not(.link) {
+    font-family: 'Poppins';
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/*
+------------------------------------------------------------------------------------*/
+
+.hs-form_style_1 .hs-input {
+    border-radius: 6px;
+    border-color: #949EA2;
+}
+
+.hs-form_style_1 .hs-input:not([type=file]) {
+    background-color: #FFF;
+}
+
+.hs-form_style_1 .hs-button {
+    width: 100%;
+    border-width: 2px;
+    padding: 16px 24px;
+    text-transform: uppercase;
+}
+
+.hs-form_style_1 .hs-button:hover,
+.hs-form_style_1 .hs-button:hover:not(.inactive),
+.hs-form_style_1 .hs-button:focus, .hs-form .hs-button:active,
+.hs-form_style_1 .hs-button:active:not(.inactive):not(.link) {
+    background: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}

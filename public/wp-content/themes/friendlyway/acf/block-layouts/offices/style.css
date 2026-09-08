@@ -1,0 +1,124 @@
+.block-offices {
+	font-size: 20px;
+	line-height: 1.5em;
+}
+
+.block-offices__intro {
+	margin-bottom: 1.75em;
+}
+
+.block-offices__intro:empty {
+    display: none;
+}
+
+.block-offices__title {
+	font-weight: 700;
+	font-size: 1.25em;
+	font-family: 'Poppins';
+}
+
+.block-offices__descr {
+    margin-top: 0.8em;
+}
+
+.block-offices__grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.6em 0.8em;
+}
+
+.block-offices__item {
+    border: 1px solid #E5E7EC;
+	width: calc(50% - 0.8em/2);
+}
+
+.block-offices__item-content {
+    color: #222;
+    padding: 1.5em 1em;
+}
+
+.block-offices__item-title {
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.4em;
+    font-family: 'Poppins';
+}
+
+.block-offices__item-descr {
+    font-size: 0.8em;
+}
+
+.block-offices__item-title + .block-offices__item-descr {
+    margin-top: 0.8em;
+}
+
+.block-offices .block-offices__item-descr p {
+    margin: 0;
+    display: flex;
+    column-gap: 0.3em;
+    font-size: inherit;
+    line-height: 1.5em;
+    align-items: flex-start;
+}
+
+.block-offices .block-offices__item-descr img {
+    width: 1.5em;
+}
+
+.block-offices .block-offices__item-descr p + p {
+    margin-top: 1em;
+}
+
+.block-offices .block-offices__item-descr ul {
+    margin-top: 1em;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.block-offices .block-offices__item-descr li {
+    font-weight: 500;
+}
+
+.block-offices__item-image {
+    width: 100%;
+}
+
+.block-offices__note {
+    margin-top: 2em;
+    padding-top: 1.5em;
+    border-top: 1px solid #E5E7EB;
+}
+
+.block-offices__note-inner {
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: 1.5em;
+    padding-left: 1.5em;
+    font-family: 'Poppins';
+    border-left: 4px solid;
+    color: var(--accent-color);
+}
+
+a.block-offices__note-inner {
+    
+}
+
+@media (max-width: 1199px) {
+	.block-offices {
+		font-size: 18px;
+	}
+	
+	.block-offices__item-descr {
+	    font-size: 14px;
+	}
+}
+
+@media (max-width: 575px) {
+	.block-offices {
+		font-size: 16px;
+	}
+	
+	.block-offices__item {
+		width: 100%;
+	}
+}

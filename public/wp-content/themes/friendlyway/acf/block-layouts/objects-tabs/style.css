@@ -1,0 +1,230 @@
+.block-objects-tabs__headers {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.block-objects-tabs__title {
+    color: #222;
+    margin: auto;
+    font-size: 32px;
+    max-width: 884px;
+    font-weight: 700;
+    line-height: 1.25em;
+    font-family: 'Poppins';
+}
+
+.block-objects-tabs__descr {
+    color: #515C69;
+    font-size: 16px;
+    max-width: 545px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.375em;
+}
+
+.block-objects-tabs__title
++ .block-objects-tabs__descr {
+    margin-top: 16px;
+}
+
+.block-objects-tabs
+.block-objects-tabs__descr p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.block-objects-tabs
+.block-objects-tabs__descr p + p {
+    margin-top: 0.5em;
+}
+
+.block-objects-tabs
+.block-objects-tabs__descr a {
+    color: var(--accent-color);
+}
+
+.block-objects-tabs__names {
+    text-align: center;
+}
+
+.block-objects-tabs__names-inner {
+    gap: 16px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    display: inline-flex;
+    border-bottom: 2px solid rgba(0, 0, 0, .15);
+}
+
+.block-objects-tabs__names-inner:empty {
+    display: none;
+}
+
+.block-objects-tabs__name {
+    color: #222222;
+    flex-shrink: 0;
+    cursor: pointer;
+    font-size: 18px;
+    min-width: 185px;
+    font-weight: 600;
+    position: relative;
+    line-height: 1.33em;
+    font-family: 'Poppins';
+    padding: calc(1em - 2px);
+}
+
+.block-objects-tabs__name:hover:before,
+.block-objects-tabs__name_active:before {
+    left: 0;
+    width: 100%;
+    height: 4px;
+    content: '';
+    position: absolute;
+    top: calc(100% - 2px);
+    background-color: var(--accent-color);
+}
+
+.block-objects-tabs__lists {
+    margin-top: 32px;
+}
+
+.block-objects-tabs__grid {
+    gap: 16px;
+    display: none;
+    flex-wrap: wrap;
+}
+
+.block-objects-tabs__grid_active {
+    display: flex;
+}
+
+.block-objects-tabs__item {
+    min-height: 350px;
+    width: calc(33.33% - 16px/3*2);
+}
+
+.block-objects-tabs__item-inner {
+    height: 100%;
+    display: flex;
+    row-gap: 50px;
+    border-radius: 8px;
+    flex-direction: column;
+    padding: 32px 18px 18px;
+    border: 1px solid #D9DEE4;
+    background-color: #FFFFFF;
+}
+
+.block-objects-tabs__item-content {
+    gap: 8px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-objects-tabs__item-image {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block-objects-tabs__item-title {
+    color: #373B40;
+    font-weight: 600;
+    line-height: 1.5em;
+    font-family: 'Poppins';
+}
+
+.block-objects-tabs__item-price {
+    color: #64748B;
+    font-size: 16px;
+    line-height: 1.36em;
+}
+
+.block-objects-tabs__item-button {
+    margin-top: auto;
+}
+
+.block-objects-tabs__button-inner {
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 16px;
+    font-weight: 500;
+    padding: 12px 32px;
+    text-align: center;
+    line-height: 1.5em;
+    border-radius: 4px;
+    font-family: 'Poppins';
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.block-objects-tabs__button-inner:hover {
+    color: #fff;
+    background-color: var(--accent-color);
+}
+
+.block-objects-tabs__notes {
+    font-size: 16px;
+    max-width: 756px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5em;
+    margin: 32px auto 0;
+}
+
+.block-objects-tabs
+.block-objects-tabs__notes p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.block-objects-tabs
+.block-objects-tabs__notes p + p {
+    margin-top: 0.5em;
+}
+
+@media (max-width: 991px) {
+    .block-objects-tabs__title {
+        font-size: 28px;
+    }
+    
+    .block-objects-tabs__item {
+        width: calc(50% - 16px/2);
+    }
+}
+
+@media (max-width: 767px) {
+    .block-objects-tabs__name {
+        min-width: 125px;
+    }
+}
+
+@media (max-width: 575px) {
+    .block-objects-tabs__item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 475px) {
+    .block-objects-tabs__headers {
+        margin-bottom: 24px;
+    }
+    
+    .block-objects-tabs__title {
+        font-size: 20px;
+    }
+    
+    .block-objects-tabs__name {
+        font-size: 16px;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 400px) {
+    .block-objects-tabs__name {
+        font-size: 14px;
+    }
+}

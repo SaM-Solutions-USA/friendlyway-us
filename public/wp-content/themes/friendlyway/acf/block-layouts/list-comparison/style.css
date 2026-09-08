@@ -1,0 +1,143 @@
+.block-list-comparison__headers {
+    margin-bottom: 32px;
+}
+
+.block-list-comparison__title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.5em;
+    font-family: 'Poppins';
+}
+
+.block-list-comparison__item-title {
+    color: #222222;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4em;
+    margin-bottom: 24px;
+    font-family: 'Poppins';
+}
+
+.block-list-comparison__item-row {
+	gap: 24px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.block-list-comparison__item-col {
+    gap: 8px;
+    display: flex;
+    font-size: 18px;
+    width: calc(50% - 24px / 2);
+    border-bottom: 1px solid #A6B0C7;
+}
+
+.block-list-comparison__item-col_th {
+    padding: 16px 0;
+    line-height: 1.5em;
+}
+
+.block-list-comparison__item-col_td {
+    padding: 28px 0;
+    line-height: 1.33em;
+}
+
+.block-list-comparison__item-col_th
+.block-list-comparison__col-icon {
+    width: 1.33em;
+}
+
+.block-list-comparison__item-col_td
+.block-list-comparison__col-icon {
+    width: 0.77em;
+}
+
+.block-list-comparison__col-icon {
+    flex-shrink: 0;
+}
+
+.block-list-comparison__col-icon svg {
+    width: 100%;
+    height: auto;
+}
+
+.block-list-comparison__col-name {
+    color: #222222;
+}
+
+.block-list-comparison__item-col_th
+.block-list-comparison__col-name {
+    font-weight: 600;
+    font-family: 'Poppins';
+}
+
+@media (min-width: 1350px) {
+    .block-list-comparison__slider .owl-nav button.owl-prev {
+        left: -75px;
+    }
+    
+    .block-list-comparison__slider .owl-nav button.owl-next {
+        right: -75px;
+    }
+    
+    .block-list-comparison__slider .owl-nav button.owl-prev,
+    .block-list-comparison__slider .owl-nav button.owl-next {
+        color: var(--accent-color);
+        background-color: transparent;
+        border-color: var(--accent-color);
+    }
+    
+    .block-list-comparison__slider .owl-nav button.owl-prev:hover,
+    .block-list-comparison__slider .owl-nav button.owl-next:hover {
+        color: #fff;
+        background-color: var(--accent-color);
+    }
+}
+
+@media (min-width: 992px) {
+    .block-list-comparison__item-head {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1199px) {
+    .block-list-comparison__title {
+        font-size: 22.5px;
+    }
+    
+    .block-list-comparison__item-title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 991px) {
+    .block-list-comparison__item-col {
+        font-size: 16px;
+    }
+    
+    .block-list-comparison__item-col_th {
+        padding: 12px 0;
+    }
+    
+    .block-list-comparison__item-col_td {
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .block-list-comparison__title {
+        font-size: 20px;
+    }
+    
+    .block-list-comparison__item-col {
+        font-size: 14px;
+    }
+    
+    .block-list-comparison__item-col_th {
+        padding: 8px 0;
+    }
+    
+    .block-list-comparison__item-col_td {
+        padding: 16px 0;
+    }
+}

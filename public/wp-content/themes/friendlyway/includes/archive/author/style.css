@@ -1,0 +1,277 @@
+.block-overview-author {
+    color: #121212;
+    line-height: 1.5;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__split {
+    display: flex;
+    row-gap: 32px;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__info {
+    background-color: #F5F3F0;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__position:not(:first-child) {
+    margin-top: 4px;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__biography {
+    color: #30302E;
+}
+
+.block-overview-author__biography:not(:first-child) {
+    margin-top: 16px;
+}
+
+.block-overview-author__biography .wysiwyg-editor {
+    font-size: 14px;
+}
+
+.block-overview-author__biography .wysiwyg-editor p {
+    font-size: inherit;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__linkedin:not(:first-child) {
+    margin-top: 24px;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__linkedin-inner {
+    column-gap: 8px;
+    align-items: center;
+    display: inline-flex;
+}
+
+a.block-overview-author__linkedin-inner:hover {
+    color: var(--accent-color);
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__linkedin-icon {
+    flex-shrink: 0;
+}
+
+a.block-overview-author__linkedin-inner:not(:hover) .block-overview-author__linkedin-svg {
+    color: #545454;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__linkedin-name {
+    font-size: 14px;
+}
+
+a.block-overview-author__linkedin-inner .block-overview-author__linkedin-name {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__posts:not(:first-child) {
+    margin-top: 24px;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__post-inner {
+    padding: 16px 0;
+    border-bottom: 1px solid #CCC;
+}
+
+a.block-overview-author__post-inner {
+    display: block;
+}
+
+.block-overview-author__post:first-child .block-overview-author__post-inner {
+    border-top: 1px solid #CCC;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__post-split {
+    display: flex;
+    row-gap: 40px;
+    justify-content: space-between;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__post-right {
+    flex-shrink: 0;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__post-img {
+    border-radius: 6px;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__post-create {
+    color: #545A5D;
+    font-size: 14px;
+}
+
+.block-overview-author__post-create:not(:first-child) {
+    margin-top: 12px;
+}
+
+/* =========================================================================================== */
+
+.block-overview-author__post:hover .block-overview-author__post-title {
+    color: var(--accent-color);
+}
+
+/* =========================================================================================== */
+
+@media (min-width: 576px) {
+    .block-overview-author__info {
+        padding: 32px;
+        border-radius: 32px;
+    }
+    
+    /* ======================================================================================= */
+    
+    .block-overview-author__img {
+        border-radius: 16px;
+    }
+    
+    /* ======================================================================================= */
+    
+    .block-overview-author__details:not(:first-child) {
+        margin-top: 16px;
+    }
+}
+
+/* =========================================================================================== */
+
+@media (min-width: 992px) {
+    .block-overview-author__left {
+        flex: 0 0 384px;
+    }
+    
+    .block-overview-author__right {
+        flex: 1;
+    }
+}
+
+/* =========================================================================================== */
+
+@media (min-width: 1200px) {
+    .block-overview-author__split {
+        column-gap: 64px;
+    }
+    
+    /* ======================================================================================= */
+    
+    .block-overview-author__post-split {
+        column-gap: 40px;
+    }
+}
+
+/* =========================================================================================== */
+
+@media (max-width: 1199px) {
+    .block-overview-author__split {
+        column-gap: 32px;
+    }
+    
+    /* ======================================================================================= */
+    
+    .block-overview-author__post-split {
+        column-gap: 24px;
+    }
+}
+
+/* =========================================================================================== */
+
+@media (max-width: 991px) {
+    .block-overview-author__split {
+        flex-direction: column;
+    }
+    
+    /* ======================================================================================= */
+    
+    .block-overview-author__info {
+        display: grid;
+        column-gap: 24px;
+        grid-template-columns: auto 1fr;
+    }
+}
+
+/* =========================================================================================== */
+
+@media (max-width: 991px) and (min-width: 576px) {
+    .block-overview-author__photo {
+        grid-row: 1/span 4;
+    }
+    
+    /* ======================================================================================= */
+    
+    .block-overview-author__photo ~ * {
+        grid-column: 2;
+    }
+    
+    .block-overview-author__photo + *:not(:first-child) {
+        margin-top: 0;
+    }
+}
+
+/* =========================================================================================== */
+
+@media (max-width: 575px) {
+    .block-overview-author__info {
+        padding: 24px;
+        border-radius: 24px;
+    }
+    
+    /* ======================================================================================= */
+    
+    .block-overview-author__photo {
+        width: 84px;
+    }
+    
+    .block-overview-author__img {
+        border-radius: 8px;
+    }
+    
+    /* ======================================================================================= */
+    
+    .block-overview-author__details {
+        grid-column: 2;
+        align-content: center;
+    }
+    
+    .block-overview-author__details ~ * {
+        grid-column: 1 / 3;
+    }
+    
+    /* ======================================================================================= */
+
+    .block-overview-author__post-right {
+        width: 120px;
+    }
+}
+
+/* =========================================================================================== */
+
+@media (max-width: 475px) {
+    .block-overview-author__post-right {
+        display: none;
+    }
+}

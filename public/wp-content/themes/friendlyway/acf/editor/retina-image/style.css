@@ -1,0 +1,4 @@
+.retina-image__figure {
+    display: flex;
+    flex-direction: column;
+}

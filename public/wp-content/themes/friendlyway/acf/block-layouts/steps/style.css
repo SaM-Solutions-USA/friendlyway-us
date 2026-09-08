@@ -1,0 +1,70 @@
+.block-steps__grid {
+	font-size: 18px;
+	line-height: 1.5em;
+	justify-content: center;
+}
+
+.block-steps__item {
+	width: auto;
+}
+
+.block-steps__item-inner {
+	height: 100%;
+	border-radius: 0.33em;
+	padding: 0.83em 1.38em;
+	background-color: #FFFFFF;
+	border: 2px solid var(--accent-color);
+}
+
+.block-steps__item-layout {
+	display: flex;
+	column-gap: 0.83em;
+}
+
+.block-steps__item-view {
+	width: 2.83em;
+}
+
+.block-steps__item-descr {
+	font-family: 'Poppins';
+}
+
+.block-steps__item-descr ul li {
+	font-weight: 500;
+	position: relative;
+	padding-left: 1.38em;
+}
+
+.block-steps__item-descr ul li:before {
+	left: 0;
+	top: 0.38em;
+	content: '';
+	width: 0.83em;
+	height: 0.66em;
+	position: absolute;
+	background-size: contain;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNSAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuNSA1LjYwOTAyTDUuNzM1MjkgOS45NzI2NkwxMy41IDEuOTcyNjYiIHN0cm9rZT0iIzE1MUMyRSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=');
+}
+
+@media (max-width: 767px) {
+	.block-steps__grid {
+		font-size: 16px;
+	}
+	
+	.block-steps__descr br {
+		display: none;
+	}
+}
+
+@media (max-width: 575px) {
+	.block-steps__grid {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 475px) {
+	.block-steps__grid {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}

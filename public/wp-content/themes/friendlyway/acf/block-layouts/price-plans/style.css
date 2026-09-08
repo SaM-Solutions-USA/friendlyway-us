@@ -1,0 +1,291 @@
+.block-price-plans__headers {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.block-price-plans__title {
+    color: #222;
+    margin: auto;
+    font-size: 32px;
+    max-width: 884px;
+    font-weight: 700;
+    line-height: 1.25em;
+    font-family: 'Poppins';
+}
+
+.block-price-plans__descr {
+    color: #515C69;
+    max-width: 545px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.375em;
+}
+
+.block-price-plans__title
++ .block-price-plans__descr {
+    margin-top: 16px;
+}
+
+.block-price-plans
+.block-price-plans__descr p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.block-price-plans
+.block-price-plans__descr p + p {
+    margin-top: 0.5em;
+}
+
+.block-price-plans
+.block-price-plans__descr a {
+    color: var(--accent-color);
+}
+
+.block-price-plans__grid {
+    gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.block-price-plans__item {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 32px 24px;
+    border-radius: 8px;
+    position: relative;
+    flex-direction: column;
+    border: 2px solid #D9DEE4;
+    background-color: #FFFFFF;
+}
+
+.block-price-plans__item_active {
+    border-color: #2bb6b7;
+    box-shadow: 0 10px 17px 0 #2BB5B51F;
+}
+
+.block-price-plans__item-mode {
+    top: 0;
+    right: 0;
+    color: #fff;
+    font-size: 14px;
+    margin-top: -2px;
+    font-weight: 600;
+    min-width: 7.28em;
+    padding: 8px 16px;
+    text-align: center;
+    margin-right: -2px;
+    position: absolute;
+    line-height: 1.14em;
+    font-family: 'Poppins';
+    border-radius: 0 8px 0 8px;
+    background: linear-gradient(45deg, #2BB6B7, #74DFE0);
+}
+
+.block-price-plans__item-name {
+    margin-bottom: 48px;
+}
+
+.block-price-plans__item-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5em;
+    font-family: 'Poppins';
+}
+
+.block-price-plans__item-descr {
+    color: #222222;
+    font-weight: 500;
+    line-height: 1.375em;
+}
+
+.block-price-plans__item-title
++ .block-price-plans__item-descr {
+    margin-top: 0.5em;
+}
+
+.block-price-plans__item-cost {
+    font-weight: 600;
+}
+
+.block-price-plans__item-tariff {
+    display: flex;
+    color: #222222;
+    font-size: 48px;
+    line-height: 1em;
+    margin-bottom: 8px;
+    align-items: baseline;
+    font-family: 'Poppins';
+}
+
+.block-price-plans__item-period {
+    line-height: 1.5em;
+}
+
+.block-price-plans__item-comment {
+    color: #6A737C;
+    font-size: 14px;
+    line-height: 1.71em;
+    margin-bottom: 0.25em;
+}
+
+.block-price-plans__item-demand {
+    color: #222222;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2em;
+    font-family: 'Poppins';
+}
+
+.block-price-plans__item-link {
+    color: #fff;
+    font-weight: 500;
+    margin-top: auto;
+    text-align: center;
+    line-height: 1.5em;
+    border-radius: 4px;
+    font-family: 'Poppins';
+    border: 2px solid transparent;
+    background-color: var(--accent-color);
+}
+
+.block-price-plans__item-link:hover {
+    color: var(--accent-color);
+    background-color: transparent;
+    border-color: var(--accent-color);
+}
+
+.block-price-plans__item-link a,
+.block-price-plans__item-link span {
+    display: block;
+    cursor: pointer;
+    padding: 12px 32px;
+}
+
+.block-price-plans__item-list {
+    margin-bottom: 32px;
+}
+
+.block-price-plans__item-heading {
+    color: #373B40;
+    font-weight: 700;
+    line-height: 1.5em;
+    margin-bottom: 8px;
+    font-family: 'Poppins';
+}
+
+.block-price-plans__item-option {
+    color: #373B40;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.42em;
+}
+
+.block-price-plans__item-option:before {
+    left: 0;
+    top: 5px;
+    content: '';
+    width: 14px;
+    height: 10px;
+    position: absolute;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMi44MTYyIDEuMjA3MDFDMTMuMDcwMSAxLjQ3MzY5IDEzLjA1OTcgMS44OTU2OCAxMi43OTMgMi4xNDk1NEw1LjA4OTI5IDkuNDgyODdDNC45NTc3MyA5LjYwODEgNC43ODA3OCA5LjY3NDI0IDQuNTk5MzMgOS42NjU5OEM0LjQxNzg4IDkuNjU3NzIgNC4yNDc2NiA5LjU3NTc5IDQuMTI4MDMgOS40MzkxMkwxLjE2NTA2IDYuMDU0NTFDMC45MjI1NDIgNS43Nzc0NyAwLjk1MDUyIDUuMzU2MjkgMS4yMjc1NSA1LjExMzc3QzEuNTA0NTkgNC44NzEyNSAxLjkyNTc3IDQuODk5MjMgMi4xNjgyOSA1LjE3NjI2TDQuNjczNDIgOC4wMzc5TDExLjg3MzcgMS4xODM4QzEyLjE0MDQgMC45Mjk5MzkgMTIuNTYyNCAwLjk0MDMzMyAxMi44MTYyIDEuMjA3MDFaIiBmaWxsPSIjMkZCOUJBIiBzdHJva2U9IiMyRkI5QkEiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+}
+
+.block-price-plans__item-option_disabled {
+    color: #22222299;
+}
+
+.block-price-plans__item-option_disabled:before {
+    filter: grayscale(1);
+}
+
+.block-price-plans__item-option:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.block-price-plans__note {
+    margin-top: 40px;
+    font-weight: 600;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .block-price-plans__item {
+        width: calc(33.33% - 16px/3*2);
+    }
+    
+    .block-price-plans__item-cost {
+        margin-bottom: 56px;
+    }
+    
+    .block-price-plans__item-period {
+        margin-bottom: -2em;
+    }
+    
+    .block-price-plans__item-comment {
+        margin-top: -1.71em;
+    }
+}
+
+@media (max-width: 1199px) {
+    .block-price-plans__item-title {
+        font-size: 20px;
+    }
+    
+    .block-price-plans__item-tariff {
+        font-size: 40px;
+    }
+    
+    .block-price-plans__item-demand {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 991px) {
+    .block-price-plans__title {
+        font-size: 28px;
+    }
+    
+    .block-price-plans__grid {
+        margin: auto;
+        max-width: 719px;
+        flex-direction: column;
+    }
+    
+    .block-price-plans__item-cost {
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    .block-price-plans__note {
+        margin-top: 32px;
+    }
+}
+
+@media (max-width: 475px) {
+    .block-price-plans__headers {
+        margin-bottom: 24px;
+    }
+    
+    .block-price-plans__title {
+        font-size: 20px;
+    }
+    
+    .block-price-plans__item-name {
+        margin-bottom: 24px;
+    }
+    
+    .block-price-plans__item-tariff {
+        font-size: 36px;
+    }
+    
+    .block-price-plans__item-demand {
+        font-size: 28px;
+    }
+}

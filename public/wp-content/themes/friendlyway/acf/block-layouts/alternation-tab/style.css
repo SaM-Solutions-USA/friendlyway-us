@@ -1,0 +1,48 @@
+.block-alternation-tab__content {
+    max-width: 720px;
+    margin-bottom: 64px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.block-alternation-tab__pre-title {
+    display: inline-block;
+    font-family: Poppins;
+    color: #F96240;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%; 
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.block-alternation-tab__pre-title::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: #F96240;
+    position: absolute;
+    top: 50%;
+    margin-top: -3px;
+    left: 0px;
+}
+
+.block-alternation-tab__title {
+    font-family: Poppins;
+    color: #121212;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 133%;
+    margin-bottom: 16px;
+}
+
+.block-alternation-tab__descr {
+    font-family: "Open Sans";
+    color: #121212;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+}

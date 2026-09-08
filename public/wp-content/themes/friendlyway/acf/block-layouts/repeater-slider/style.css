@@ -1,0 +1,60 @@
+.block-repeater-slider {
+	font-size: 20px;
+	line-height: 1.5em;
+}
+
+.block-repeater-slider__intro {
+	margin-bottom: 1.75em;
+}
+
+.block-repeater-slider__title {
+	font-weight: 700;
+	font-size: 1.25em;
+	font-family: 'Poppins';
+}
+
+.block-repeater-slider__list-item:not(:last-child) {
+    margin-bottom: 2.5em;
+}
+
+.block-repeater-slider__item-content {
+    margin-bottom: 1.5em;
+}
+
+.block-repeater-slider__item-title {
+    font-weight: 700;
+	font-size: 1.125em;
+	font-family: 'Poppins';
+}
+
+.block-repeater-slider__item-descr a {
+    color: var(--accent-color);
+}
+
+.block-repeater-slider__gallery-item {
+    width: 365px;
+    height: 100%;
+}
+
+.block-repeater-slider__gallery-image {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 365 / 243;
+}
+
+@media (max-width: 1199px) {
+    .block-repeater-slider {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 575px) {
+    .block-repeater-slider {
+        font-size: 16px;
+    }
+    
+    .block-repeater-slider__gallery-item {
+        width: 300px;
+    }
+}

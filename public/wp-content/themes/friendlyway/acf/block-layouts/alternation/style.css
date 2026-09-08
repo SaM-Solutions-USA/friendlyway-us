@@ -1,0 +1,175 @@
+.block-alternation .block-alternation__repeater {
+	margin-top: -15px;
+}
+
+.block-alternation__repeater-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.block-alternation__repeater-inner > * {
+	flex: 1;
+}
+
+.block-alternation__repeater-item:first-child {
+	margin-top: 64px;
+}
+
+.block-alternation__repeater-item:not(:first-child) {
+	margin-top: 80px;
+}
+
+.block-alternation__repeater-picture {
+	max-width: 100%;
+}
+
+.block-alternation__repeater-img {
+	width: 100%;
+}
+
+.block-alternation__repeater-button {
+    font-weight: 600;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+.block-alternation__repeater-button:after {
+    content: '';
+    width: 0.4375em;
+    height: 0.6875em;
+    margin-left: 0.5em;
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNyIgaGVpZ2h0PSIxMSIgdmlld0JveD0iMCAwIDcgMTEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNSA1LjVMMSAxMCIgc3Ryb2tlPSIjRUM3MjIxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K);
+}
+
+.block-alternation__repeater-item:nth-child(even) .block-alternation__repeater-inner {
+	flex-direction: row-reverse;
+}
+
+.block-alternation_style_1 .block-alternation__repeater-item:nth-child(odd) .block-alternation__repeater-picture {
+	margin-right: 96px;
+}
+
+.block-alternation_style_2 .block-alternation__repeater-item:nth-child(odd) .block-alternation__repeater-picture {
+	margin-right: 40px;
+}
+
+.block-alternation_style_1 .block-alternation__repeater-item:nth-child(even) .block-alternation__repeater-picture {
+	margin-left: 96px;
+}
+
+.block-alternation_style_2 .block-alternation__repeater-item:nth-child(even) .block-alternation__repeater-picture {
+	margin-left: 40px;
+}
+
+.block-alternation_style_1 .block-alternation__repeater-content {
+	max-width: 340px;
+}
+
+.block-alternation_style_2 .block-alternation__repeater-content {
+	max-width: 496px;
+}
+
+.block-alternation__repeater-title {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.block-alternation_style_1 .block-alternation__repeater-title {
+	font-family: 'Open Sans';
+}
+
+.block-alternation_style_2 .block-alternation__repeater-title {
+	font-family: 'Poppins';
+}
+
+.block-alternation__repeater-link:hover {
+	color: var(--accent-color);
+}
+
+.block-alternation .block-alternation__repeater-descr p {
+	font-size: 18px;
+}
+
+.block-alternation_style_1 .block-alternation__repeater-descr p {
+	opacity: .8;
+}
+
+.block-alternation_style_2 .block-alternation__repeater-descr p {
+    color: #F5F3F0;
+}
+
+.block-alternation .block-alternation__repeater-descr ul {
+    font-size: 18px;
+	margin-top: 10px;
+	padding-left: 35px;
+	list-style-type: disc;
+}
+
+@media (max-width: 991px) {
+	.block-alternation__repeater-inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	
+	.block-alternation_style_1 .block-alternation__repeater-inner {
+	    max-width: 700px;
+	}
+	
+	.block-alternation_style_2 .block-alternation__repeater-inner {
+	    max-width: 600px;
+	}
+	
+	.block-alternation__repeater-item:nth-child(odd) .block-alternation__repeater-inner {
+		margin-right: auto;
+	}
+	
+	.block-alternation__repeater-item:nth-child(even) .block-alternation__repeater-inner {
+		margin-left: auto;
+		flex-direction: column;
+	}
+	
+	.block-alternation__repeater-item:nth-child(odd) .block-alternation__repeater-picture {
+		margin-right: 0 !important;
+	}
+	
+	.block-alternation__repeater-item:nth-child(even) .block-alternation__repeater-picture {
+		margin-left: 0 !important;
+	}
+	
+	.block-alternation__repeater-picture {
+		margin-bottom: 25px;
+	}
+	
+	.block-alternation .block-alternation__repeater-content {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 575px) {
+	.block-alternation__repeater-title {
+		font-size: 18px;
+	}
+	
+	.block-alternation__repeater-item:first-child {
+    	margin-top: 24px;
+    }
+    
+    .block-alternation__repeater-item:not(:first-child) {
+    	margin-top: 48px;
+    }
+	
+	.block-alternation .block-alternation__repeater-descr p {
+		font-size: 16px;
+	}
+	
+	.block-alternation .block-alternation__repeater-descr ul {
+		font-size: 16px;
+		padding-left: 20px;
+	}
+}
