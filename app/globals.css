@@ -97,10 +97,6 @@ body {
   background: #fff;
 }
 
-main {
-  padding: 2rem;
-}
-
 /*
  * Welcome banner (Stage 1 of plans/top-header-component-migration.md).
  * Scoped to .welcome-banner* classes only — no rules here touch the site
