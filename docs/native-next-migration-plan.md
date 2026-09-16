@@ -111,6 +111,7 @@ components/
   site-search/               # Client only when a search destination exists
   site-footer/               # Server: semantic address and link content
   cookie-settings-button/    # Client: consent-provider adapter
+  hubspot-form/              # Client: consent-gated HubSpot form embed
 lib/
   navigation.ts              # Active-branch and internal/external-link helpers
 ```
@@ -326,6 +327,73 @@ The legacy exports indicate these reusable blocks:
 
 Use server components by default. Isolate only interactive behavior behind
 small client-component boundaries.
+
+For recurring editorial typography, use small server primitives instead of a
+fixed title-and-copy section: `section-heading` renders a requested `h1`,
+`h2`, or `h3` with display typography, and `paragraph` renders one `p` with
+body typography and adjacent-paragraph rhythm. The consuming page component
+retains ownership of its section layout, spacing, background, media, and CTA.
+Do not turn either primitive into a general WordPress/HTML renderer.
+
+### HubSpot Form Integration
+
+Provide one reusable `components/hubspot-form/` client component for approved
+HubSpot forms. Page components render their static contact copy and layout on
+the server, then place `HubSpotForm` where the form belongs; no page may copy
+the WordPress loader snippet or call HubSpot APIs directly.
+
+The public API should receive a typed, immutable configuration object from
+page data:
+
+```ts
+interface HubSpotFormConfig {
+  readonly portalId: string;
+  readonly formId: string;
+  readonly region?: string;
+  readonly formName: string;
+  readonly consentCategory: "functional" | "marketing";
+  readonly context?: {
+   readonly pageName?: string;
+   readonly pageUri?: string;
+  };
+}
+```
+
+Keep form IDs, portal IDs, consent categories, and optional HubSpot context in
+typed `content/` data. Do not embed those values in page markup, read them from
+environment files in the browser, or reproduce WordPress session-storage and
+analytics side effects unless they have separate approval.
+
+`HubSpotForm` owns only the provider boundary:
+
+1. Render an accessible named region with a stable reserved height and a
+  loading state in the initial HTML.
+2. Ask the consent adapter whether the configured category is granted; do not
+  request `forms/embed/v2.js` or create `window.hbspt` before it is.
+3. Inject the HubSpot script once per document, deduplicate concurrent form
+  mounts, and wait for it to load before calling `hbspt.forms.create`.
+4. Create one form per component instance against a component-owned container;
+  cleanup must remove only that instance's rendered content and listeners.
+5. Show a non-throwing blocked state when consent is absent, with a control
+  that opens Cookie Settings when the adapter is available. Show a retryable,
+  accessible error state when the provider fails to load or initialize.
+6. Subscribe to consent changes so a blocked form can load after approval and
+  an approved form is removed when consent is revoked. Never submit, proxy,
+  or store form data in Next.js unless a separately approved first-party form
+  design replaces HubSpot.
+
+The component must accept a provider adapter rather than import a specific
+Cookiebot global. The adapter exposes the minimum operations needed to read
+the category state, subscribe to changes, and open settings. Until a consent
+provider is approved, use an adapter that reports no consent and leaves the
+form in its blocked state without browser errors.
+
+Add focused tests for script deduplication, delayed consent, consent revocation,
+provider-load failure, initialization failure, retry, and multiple forms on one
+page. Browser validation must confirm that no HubSpot request occurs before
+consent and that each approved instance renders once. The About Us form becomes
+the first consumer only after its portal/form IDs and consent category are
+approved.
 
 ### SEO and Metadata
 

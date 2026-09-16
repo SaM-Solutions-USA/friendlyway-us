@@ -1,0 +1,17 @@
+.root {
+  margin: 0 auto;
+  width: min(100%, 1168px);
+  padding: 3rem 1rem 0;
+}
+
+.image {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+@media (max-width: 575px) {
+  .root {
+    padding: 2rem 1rem 0;
+  }
+}

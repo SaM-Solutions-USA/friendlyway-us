@@ -19,6 +19,12 @@ export interface SiteLink {
   readonly label: string;
   readonly href: string;
   readonly external?: boolean;
+  readonly primaryAction?: boolean;
+}
+
+export interface SiteLocale extends SiteLink {
+  readonly current?: boolean;
+  readonly flag: MediaAsset;
 }
 
 export interface FooterAddress {
@@ -47,7 +53,30 @@ export interface FooterContent {
   readonly copyright: string;
 }
 
+export interface WelcomeBannerContent {
+  readonly release: string;
+  readonly href: string;
+  readonly image: MediaAsset;
+  readonly title: string;
+  readonly details: string;
+  readonly actionLabel: string;
+}
+
 export const siteContent = {
+  welcomeBanner: {
+    release: "1785931796",
+    href: "/meet-friendlyway-at-gsx-2026",
+    image: {
+      src: "/wp-content/uploads/logo-gsx-2026.png",
+      srcSet: "/wp-content/uploads/logo-gsx-2026.png 1x, /wp-content/uploads/logo-gsx-2026@2x.png 2x",
+      width: 75,
+      height: 24,
+      alt: "Meet friendlyway at GSX 2026",
+    },
+    title: "Meet friendlyway at GSX 2026!",
+    details: "🔐 September 14-16, Georgia World Congress Center, Atlanta, Booth 4146.",
+    actionLabel: "Learn more",
+  },
   brand: {
     name: "friendlyway",
     logo: {
@@ -63,14 +92,14 @@ export const siteContent = {
     { label: "Customer Support", href: "https://helpdesk.friendlyway.com/en/support/home", external: true },
     { label: "Contact", href: "/contact-us" },
     { label: "Login", href: "https://cloud.friendlyway.us/#/auth", external: true },
-    { label: "Free Trial", href: "/free-trial" },
+    { label: "Free Trial", href: "/free-trial", primaryAction: true },
   ],
   locales: [
-    { label: "US", href: "/", current: true },
-    { label: "EU", href: "https://www.friendlyway.com/", external: true },
-    { label: "DE", href: "https://www.friendlyway.de/", external: true },
-    { label: "PL", href: "https://friendlyway.pl/", external: true },
-    { label: "IT", href: "https://friendlyway.it/", external: true },
+    { label: "US", href: "/", current: true, flag: { src: "/wp-content/uploads/united-kingdom-2.svg", alt: "United States", width: 16, height: 16 } },
+    { label: "EU", href: "https://www.friendlyway.com/", external: true, flag: { src: "/wp-content/uploads/eu-en.svg", alt: "European Union", width: 16, height: 16 } },
+    { label: "DE", href: "https://www.friendlyway.de/", external: true, flag: { src: "/wp-content/uploads/germany.svg", alt: "Germany", width: 16, height: 16 } },
+    { label: "PL", href: "https://friendlyway.pl/", external: true, flag: { src: "/wp-content/uploads/poland.svg", alt: "Poland", width: 16, height: 16 } },
+    { label: "IT", href: "https://friendlyway.it/", external: true, flag: { src: "/wp-content/uploads/italy.svg", alt: "Italy", width: 16, height: 16 } },
   ],
   navigation: [
     {
@@ -133,12 +162,12 @@ export const siteContent = {
       href: "/kiosks-terminals-overview",
       children: [
         { id: "hardware-overview", label: "Overview", href: "/kiosks-terminals-overview" },
-        { id: "counter-22", label: "Counter 22", href: "/products/counter-22", description: "Tablet Kiosk with LED Light Status Frame" },
-        { id: "empire-22-slim", label: "Empire 22 Slim", href: "/products/empire-22-slim", description: "Sleek Kiosk for Lobbies or Production Areas" },
-        { id: "empire-22-deep", label: "Empire 22 Deep", href: "/products/empire-22-deep", description: "Midweight Kiosk Balancing Modularity and Utility" },
-        { id: "empire-22-pro", label: "Empire 22 Pro", href: "/products/empire-22-pro-kiosk", description: "Versatile Kiosk for Any Business Application" },
-        { id: "luminum-43", label: "Luminum 43", href: "/products/luminum-43", description: "Ergonomic Kiosk for Modern Digital Engagement" },
-        { id: "impress-43", label: "Impress 43", href: "/products/impress-43", description: "Premium Kiosk for Interactive Visitor Experiences" },
+        { id: "counter-22", label: "Counter 22", href: "/products/counter-22", description: "Tablet Kiosk with LED Light Status Frame", media: { src: "/wp-content/uploads/counter-22.webp", srcSet: "/wp-content/uploads/counter-22@2x.webp 2x", alt: "Counter 22", width: 80, height: 80 } },
+        { id: "empire-22-slim", label: "Empire 22 Slim", href: "/products/empire-22-slim", description: "Sleek Kiosk for Lobbies or Production Areas", media: { src: "/wp-content/uploads/Impress-43-2.webp", srcSet: "/wp-content/uploads/Impress-43@2x-2.webp 2x", alt: "Empire 22 Slim", width: 80, height: 80 } },
+        { id: "empire-22-deep", label: "Empire 22 Deep", href: "/products/empire-22-deep", description: "Midweight Kiosk Balancing Modularity and Utility", media: { src: "/wp-content/uploads/Impress-43.png", srcSet: "/wp-content/uploads/Impress-43@2x.png 2x", alt: "Empire 22 Deep", width: 80, height: 80 } },
+        { id: "empire-22-pro", label: "Empire 22 Pro", href: "/products/empire-22-pro-kiosk", description: "Versatile Kiosk for Any Business Application", media: { src: "/wp-content/uploads/Impress-43-3.webp", srcSet: "/wp-content/uploads/Impress-43@2x-3.webp 2x", alt: "Empire 22 Pro", width: 80, height: 80 } },
+        { id: "luminum-43", label: "Luminum 43", href: "/products/luminum-43", description: "Ergonomic Kiosk for Modern Digital Engagement", media: { src: "/wp-content/uploads/Luminum-43-1-1.webp", srcSet: "/wp-content/uploads/Luminum-43@2x-1-1.webp 2x", alt: "Luminum 43", width: 80, height: 80 } },
+        { id: "impress-43", label: "Impress 43", href: "/products/impress-43", description: "Premium Kiosk for Interactive Visitor Experiences", media: { src: "/wp-content/uploads/Impress-43-4.webp", srcSet: "/wp-content/uploads/Impress-43@2x-4.webp 2x", alt: "Impress 43", width: 80, height: 80 } },
       ],
     },
     {
@@ -147,21 +176,21 @@ export const siteContent = {
       href: "/solutions",
       children: [
         { id: "manufacturing-infrastructure", label: "Manufacturing and Infrastructure", children: [
-          { id: "general-manufacturing", label: "General Manufacturing", href: "/solutions-for-manufacturing" },
-          { id: "pulp-paper", label: "Pulp and Paper", href: "/safety-solutions-for-pulp-and-paper" },
-          { id: "construction", label: "Construction", href: "/construction-site-visitor-workforce-management" },
-          { id: "ai-data-centers", label: "AI Data Centers", href: "/visitor-management-ai-data-centers" },
+          { id: "general-manufacturing", label: "General Manufacturing", href: "/solutions-for-manufacturing", media: { src: "/wp-content/uploads/icon-general-manufacturing.svg", alt: "General Manufacturing", width: 24, height: 24 } },
+          { id: "pulp-paper", label: "Pulp and Paper", href: "/safety-solutions-for-pulp-and-paper", media: { src: "/wp-content/uploads/icon-pulp-and-paper.svg", alt: "Pulp and Paper", width: 24, height: 24 } },
+          { id: "construction", label: "Construction", href: "/construction-site-visitor-workforce-management", media: { src: "/wp-content/uploads/icon-construction.svg", alt: "Construction", width: 24, height: 24 } },
+          { id: "ai-data-centers", label: "AI Data Centers", href: "/visitor-management-ai-data-centers", media: { src: "/wp-content/uploads/icon-data-center.svg", alt: "AI Data Centers", width: 24, height: 24 } },
         ] },
         { id: "government", label: "Government and Public Institutions", children: [
-          { id: "government-public-sector", label: "Public Sector", href: "/visitor-management-government-public-sector" },
-          { id: "judiciary", label: "Judiciary", href: "/self-service-solutions-for-courts" },
-          { id: "education", label: "Education", href: "/visitor-management-educational-institutions" },
+          { id: "government-public-sector", label: "Public Sector", href: "/visitor-management-government-public-sector", media: { src: "/wp-content/uploads/icon-public-sector.svg", alt: "Public Sector", width: 24, height: 24 } },
+          { id: "judiciary", label: "Judiciary", href: "/self-service-solutions-for-courts", media: { src: "/wp-content/uploads/icon-judiciary.svg", alt: "Judiciary", width: 24, height: 24 } },
+          { id: "education", label: "Education", href: "/visitor-management-educational-institutions", media: { src: "/wp-content/uploads/icon-education.svg", alt: "Education", width: 24, height: 24 } },
         ] },
         { id: "commercial-services", label: "Commercial and Service Industries", children: [
-          { id: "retail", label: "Retail", href: "/retail-digital-signage-software-and-solutions" },
-          { id: "tourism-hospitality", label: "Tourism and Hospitality", href: "/solutions-for-tourism-travel-hospitality" },
-          { id: "trade-shows", label: "Trade Shows and Events", href: "/digital-signage-for-trade-shows-and-showrooms" },
-          { id: "sports-venues", label: "Sports Venues and Arenas", href: "/friendlyway-solutions-for-sports-events-arenas" },
+          { id: "retail", label: "Retail", href: "/retail-digital-signage-software-and-solutions", media: { src: "/wp-content/uploads/icon-retail.svg", alt: "Retail", width: 24, height: 24 } },
+          { id: "tourism-hospitality", label: "Tourism and Hospitality", href: "/solutions-for-tourism-travel-hospitality", media: { src: "/wp-content/uploads/icon-tourism-and-hospitality.svg", alt: "Tourism and Hospitality", width: 24, height: 24 } },
+          { id: "trade-shows", label: "Trade Shows and Events", href: "/digital-signage-for-trade-shows-and-showrooms", media: { src: "/wp-content/uploads/icon-trade-shows-and-events.svg", alt: "Trade Shows and Events", width: 24, height: 24 } },
+          { id: "sports-venues", label: "Sports Venues and Arenas", href: "/friendlyway-solutions-for-sports-events-arenas", media: { src: "/wp-content/uploads/icon-sports-venues-and-arenas.svg", alt: "Sports Venues and Arenas", width: 24, height: 24 } },
         ] },
       ],
     },
@@ -212,10 +241,11 @@ export const siteContent = {
   },
 } as const satisfies {
   readonly brand: { readonly name: string; readonly logo: MediaAsset };
+  readonly welcomeBanner: WelcomeBannerContent;
   readonly contactCta: SiteLink;
   readonly phone: SiteLink;
   readonly utilityLinks: readonly SiteLink[];
-  readonly locales: readonly (SiteLink & { readonly current?: boolean })[];
+  readonly locales: readonly SiteLocale[];
   readonly navigation: readonly NavigationItem[];
   readonly footer: FooterContent;
 };

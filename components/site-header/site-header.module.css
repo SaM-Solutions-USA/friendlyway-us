@@ -1,0 +1,181 @@
+.root {
+  position: relative;
+  z-index: 4;
+  color: #121212;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  background: #fff;
+}
+
+.utilityBand,
+.primaryBand {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.utilityBand {
+  padding: 8px 0;
+}
+
+.primaryBand {
+  padding: 16px 0;
+}
+
+.container {
+  position: relative;
+  width: min(100%, 1168px);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.utilityRow,
+.primaryRow,
+.utilityNavigation > ul,
+.primaryNavigation {
+  display: flex;
+  align-items: center;
+}
+
+.utilityRow {
+  justify-content: space-between;
+}
+
+.phone {
+  color: #41434a;
+  text-decoration: none;
+}
+
+.utilityNavigation > ul,
+.primaryNavigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.utilityNavigation > ul {
+  gap: 24px;
+}
+
+.utilityCta {
+  margin-left: 12px;
+}
+
+.utilityNavigation a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.utilityNavigation a {
+  padding: .575em 1em;
+}
+
+.utilityNavigation a {
+  border-radius: 6px;
+}
+
+.utilityCta > a {
+  padding: calc(.575em - 2px) 1em;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: var(--accent-color);
+}
+
+.utilityCta > a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background: #fff;
+}
+
+.utilityNavigation li:not(.utilityCta) > a:hover {
+  background: #ebf0f4;
+}
+
+.primaryRow {
+  justify-content: space-between;
+  min-height: 44px;
+}
+
+.logo {
+  display: block;
+  flex-shrink: 0;
+  width: 142px;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.primaryNavigation {
+  flex: 1;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.contactCta {
+  margin-left: 24px;
+  padding: calc(.575em - 2px) 1em;
+  color: #fff !important;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background: var(--accent-color);
+}
+
+@media (min-width: 576px) {
+  .contactCta:hover {
+    color: var(--accent-color) !important;
+    border-color: var(--accent-color);
+    background: #fff;
+  }
+}
+
+@media (min-width: 992px) {
+  .primaryNavigation .contactCta {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .utilityNavigation,
+  .primaryNavigation > nav {
+    display: none;
+  }
+
+  .primaryBand {
+    padding: 16px 0;
+  }
+
+  .contactCta {
+    margin-left: auto;
+    margin-right: 16px;
+  }
+
+}
+
+@media (max-width: 575px) {
+  .primaryBand {
+    padding: 16px 0;
+  }
+
+  .primaryRow {
+    min-height: 0;
+  }
+
+  .logo {
+    width: 112px;
+  }
+
+  .contactCta {
+    margin-right: 20px;
+    padding: 0;
+    color: var(--accent-color) !important;
+    border: 0;
+    background: transparent;
+    border-radius: 0;
+    text-decoration: underline;
+  }
+}

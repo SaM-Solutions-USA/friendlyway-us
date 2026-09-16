@@ -40,6 +40,13 @@ migration; this document owns the shared shell work only.
    feature until its focused validation passes.
 7. Keep temporary no-index metadata on the native route until the About Us
   page is approved for release. Do not transfer canonical ownership yet.
+8. Treat the live site and exported legacy markup as measurable specifications,
+   not design inspiration. Before implementing a shell slice, capture its
+   source DOM hierarchy, content grouping, direct CSS dependencies, inherited
+   typography, and responsive rules. Preserve those distinctions in typed data
+   and semantic markup unless a replacement is explicitly approved. Do not
+   start the next slice until browser measurements at the target widths confirm
+   its layout and text rhythm match the reference.
 
 ## Reference Behavior
 
@@ -224,20 +231,92 @@ for multi-level interactive menus.
 ### 5. Mobile Navigation
 
 **Scope**: Add `mobile-navigation` as a client component with menu trigger,
-overlay, nested drill-down view, and back controls.
+overlay, nested drill-down view, and back controls. Keep the header and all
+navigation content server-rendered; this client boundary owns only disclosure,
+focus, and scroll state.
+
+**Legacy reference**:
+
+- At `max-width: 991px`, the desktop navigation is absent and the hamburger
+  opens a right-aligned drawer below the primary row, separated by a 16px top
+  offset. The backdrop covers the viewport with `#1e1e1ee6`.
+- The drawer is 300px wide from 476px through 991px and full viewport width at
+  475px and below. Its scrollable height is the viewport less the header: 105px
+  at 576px and above, 95px below 576px.
+- Each row has a 1px `#e5e7eb` bottom border and `0.75em 1em` link padding.
+  Current and hovered non-accent rows use `#ebf0f4`.
+- Parent rows have a 45px next control. Selecting it slides the child list in
+  from the right; every drill-down view starts with a back row using the parent
+  label and a 45px back control.
+- The legacy implementation mutates the DOM with jQuery. Do not reproduce that
+  approach, its WordPress admin-bar calculations, or its global body classes.
+
+**Implementation sequence**:
+
+1. Create `components/mobile-navigation/index.ts`,
+   `mobile-navigation.tsx`, and `mobile-navigation.module.css`. The component
+   accepts the existing recursive `NavigationItem[]`, current active IDs, and
+   the current pathname; it must not create a second navigation data tree.
+2. Replace the present decorative `menuTrigger` span in `SiteHeader` with the
+   component. Render a semantic `<button>` with an accessible name, expanded
+   state, and `aria-controls` pointing at the drawer dialog. Keep the Contact
+   CTA beside it exactly as the current header layout requires.
+3. Render every mobile destination as an `<a href>` in the initial server HTML,
+   including descendants that are initially hidden inside inactive drill-down
+   views. Rendering may be inside the client component, since Next prerenders
+   client components to HTML; do not fetch navigation data after hydration.
+4. Model state as `isOpen` plus an ordered path of expanded parent IDs. A
+   forward disclosure pushes one ID; Back pops one ID; Close resets the path.
+   Do not store copied menu node objects or query/mutate DOM nodes.
+5. Use dialog semantics: `role="dialog"`, `aria-modal="true"`, an accessible
+   drawer label, and a backdrop button outside the dialog surface. On open,
+   focus the first meaningful drawer control; trap Tab/Shift+Tab inside; on
+   close, restore focus to the hamburger.
+6. Close on Escape, backdrop click, a destination-link click, and a viewport
+   transition to at least 992px. Use `matchMedia("(min-width: 992px)")` in an
+   effect rather than reading viewport width during render.
+7. Lock document scrolling only while the dialog is open. Preserve and restore
+   the prior inline `body.style.overflow` value during cleanup; compensate for
+   scrollbar width only if a measured layout shift remains. Never leave the
+   body locked after route navigation, breakpoint changes, or unmount.
+8. Animate only the drawer view translation (`transform: translateX`) and
+   respect `prefers-reduced-motion`. Keep inactive views non-interactive using
+   `hidden` or inert semantics so focus cannot enter them.
+9. Start with the generic hierarchy and text labels. Reuse shared media from
+   the existing typed data where it improves parity, but do not import desktop
+   mega-menu layout styles into the mobile module. Search remains omitted until
+   its separate route and query contract are approved.
 
 **Required behavior**:
 
-- Dialog semantics, focus containment, scroll lock, Escape and backdrop close.
-- Close on navigation and viewport transition to desktop.
-- One data tree shared with desktop navigation.
+- Dialog semantics, focus containment, scroll lock, Escape, and backdrop close.
+- Correct `aria-expanded`, `aria-controls`, dialog label, and visible keyboard
+  focus treatment.
+- One data tree shared with desktop navigation, with every destination link
+  present in the server-rendered HTML.
+- Drill-down and Back preserve predictable focus: focus moves to the child
+  view's Back control after Forward, and returns to the invoking parent control
+  after Back.
+- Opening, closing, and changing views must not cause horizontal overflow,
+  content clipping, or a body-layout shift.
 
 **Done when**:
 
-- Focus cannot escape while the menu is open.
-- Mobile drill-down/back paths preserve predictable focus.
-- No horizontal scroll, clipped labels, or body-layout shift at 375px.
-- `npm run build` passes.
+- The 300px drawer at 768px and the full-width drawer at 375px match the
+  reference placement, row rhythm, control widths, and backdrop.
+- All first-, second-, and third-level paths are reachable with pointer and
+  keyboard. Escape, backdrop click, destination navigation, and desktop
+  breakpoint transition close the drawer and restore or transfer focus safely.
+- Focus cannot escape while the drawer is open; hidden drill-down views cannot
+  receive focus; Back returns focus to the control that opened the view.
+- At 375px, 576px, 768px, and 992px there is no horizontal scroll, clipped
+  label, layout shift, or lingering document scroll lock.
+- Browser checks confirm every destination `href` exists before interaction,
+  the representative legacy route still resolves through compatibility, and
+  no new console errors or missing assets occur.
+- Add focused interaction tests for open/close, nested forward/back, focus
+  restoration, Escape, backdrop, and desktop-breakpoint cleanup; then run
+  `npm run build`.
 
 ### 6. Campaign Banner and Sticky Behavior
 
@@ -305,6 +384,8 @@ Run after every work package:
   `/wp-content/...` asset still loads.
 5. Browser console/network check for new errors, missing assets, unexpected
    third-party scripts, layout shift, and horizontal overflow.
+6. Compare measured browser geometry for the slice's text blocks, item gaps,
+  wrapping, and responsive ordering against the captured live-site reference.
 
 Before accepting the complete shell, repeat the reference behavior matrix and
 verify all accessible interactions using keyboard only.

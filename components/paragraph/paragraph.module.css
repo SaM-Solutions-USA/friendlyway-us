@@ -1,0 +1,14 @@
+.root {
+  color: #111;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8;
+  margin: 1em 0;
+}
+
+@media (max-width: 575px) {
+  .root {
+    font-size: 14px;
+  }
+}

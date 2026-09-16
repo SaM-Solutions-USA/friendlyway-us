@@ -9,7 +9,7 @@
     "test:legacy-resolver": "node --experimental-strip-types --test tests/resolve-legacy-page.test.mts",
     "test:content": "node --experimental-strip-types --test tests/content-loader.test.mts",
     "test:renderer": "node --experimental-strip-types --test tests/page-renderer.test.mts",
-    "test:welcome-banner": "node --experimental-strip-types --test tests/welcome-banner.test.mts",
+    "test:welcome-banner": "node --experimental-strip-types --test components/welcome-banner/welcome-banner.test.mts",
     "test:legacy-route": "node --experimental-strip-types --test tests/legacy-route-handler.test.mts",
     "validate:content": "node --experimental-strip-types scripts/validate-content.mts"
   },

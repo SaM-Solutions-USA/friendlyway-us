@@ -1,0 +1,5 @@
+import Image from "next/image";
+import { SectionHeading } from "@/components/section-heading";
+import type { AboutUsCard } from "@/content/about-us";
+import styles from "./product-grid.module.css";
+export function ProductGrid({ cards, cta }: { readonly cards: readonly AboutUsCard[]; readonly cta: { readonly label: string; readonly href: string } }) { return <section className={styles.root} aria-labelledby="hardware-offerings"><SectionHeading as="h2" id="hardware-offerings">friendlyway Hardware Offerings</SectionHeading><ul className={styles.grid}>{cards.map((card) => <li key={card.title}>{card.image ? <div className={styles.imageWrap}><Image className={styles.image} src={card.image.src} width={card.image.width} height={card.image.height} alt={card.image.alt} sizes="(max-width: 475px) calc(100vw - 32px), (max-width: 991px) 50vw, 25vw" /></div> : null}{card.href ? <a className={`${styles.title} ${styles.link}`} href={card.href}>{card.title}</a> : <span className={styles.title}>{card.title}</span>}</li>)}</ul><a className={styles.cta} href={cta.href}>{cta.label}</a></section>; }

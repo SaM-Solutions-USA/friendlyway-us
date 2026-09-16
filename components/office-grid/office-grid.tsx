@@ -1,0 +1,6 @@
+import Image from "next/image";
+
+import { SectionHeading } from "@/components/section-heading";
+import type { AboutUsOffice } from "@/content/about-us";
+import styles from "./office-grid.module.css";
+export function OfficeGrid({ offices }: { readonly offices: readonly AboutUsOffice[] }) { return <section className={styles.root} aria-labelledby="offices"><SectionHeading as="h2" id="offices">Our Offices</SectionHeading><div className={styles.grid}>{offices.map((office) => <article className={styles.office} key={office.name}><h3 className={styles.name}>{office.name}</h3><address className={styles.address}><Image className={styles.icon} src="/wp-content/uploads/icon-location-1.svg" width={24} height={25} alt="" />{office.address}</address>{office.telephone ? <p className={styles.telephone}><Image className={styles.icon} src="/wp-content/uploads/icon-call.svg" width={24} height={25} alt="" /><a href={office.telephone.href}>{office.telephone.display}</a></p> : null}</article>)}</div></section>; }
