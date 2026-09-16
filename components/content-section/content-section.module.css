@@ -1,0 +1,62 @@
+.band {
+  width: 100%;
+}
+
+.default {
+  background: #fff;
+}
+
+.muted {
+  background: #f4f6f8;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  width: 100%;
+}
+
+.content {
+  max-width: 1168px;
+}
+
+.full {
+  max-width: none;
+}
+
+.paddingStartNone { padding-block-start: 0; }
+.paddingStartXs { padding-block-start: 8px; }
+.paddingStartSm { padding-block-start: 24px; }
+.paddingStartMd { padding-block-start: 40px; }
+.paddingStartLg { padding-block-start: 64px; }
+.paddingStartXl { padding-block-start: 96px; }
+
+.paddingEndNone { padding-block-end: 0; }
+.paddingEndXs { padding-block-end: 8px; }
+.paddingEndSm { padding-block-end: 24px; }
+.paddingEndMd { padding-block-end: 40px; }
+.paddingEndLg { padding-block-end: 64px; }
+.paddingEndXl { padding-block-end: 96px; }
+
+.gapNone { row-gap: 0; }
+.gapXs { row-gap: 8px; }
+.gapSm { row-gap: 24px; }
+.gapMd { row-gap: 40px; }
+.gapLg { row-gap: 64px; }
+.gapXl { row-gap: 96px; }
+
+@media (max-width: 575px) {
+  .paddingStartMd { padding-block-start: 32px; }
+  .paddingStartLg { padding-block-start: 48px; }
+  .paddingStartXl { padding-block-start: 64px; }
+
+  .paddingEndMd { padding-block-end: 32px; }
+  .paddingEndLg { padding-block-end: 48px; }
+  .paddingEndXl { padding-block-end: 64px; }
+
+  .gapMd { row-gap: 32px; }
+  .gapLg { row-gap: 48px; }
+  .gapXl { row-gap: 64px; }
+}

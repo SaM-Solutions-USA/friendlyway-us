@@ -1,4 +1,5 @@
 import type { FooterContent, FooterSocialLink, SiteLink } from "@/content/site";
+import { ConsentSettingsButton } from "@/components/consent-settings";
 
 import styles from "./site-footer.module.css";
 
@@ -68,6 +69,7 @@ export function SiteFooter({ footer }: SiteFooterProps) {
           <nav className={styles.legal} aria-label="Legal">
             <ul className={styles.legalList}>
               {footer.legalLinks.map((link) => <li key={link.href}><FooterLink link={link} /></li>)}
+              <li><ConsentSettingsButton /></li>
             </ul>
           </nav>
         </div>

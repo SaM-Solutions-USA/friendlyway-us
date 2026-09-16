@@ -1,0 +1,99 @@
+.dialog {
+  background: #fff;
+  border: 0;
+  box-shadow: 0 16px 40px #0004;
+  color: #111;
+  inset: 50% auto auto 50%;
+  max-width: min(100% - 2rem, 34rem);
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.dialog::backdrop {
+  background: #0009;
+}
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.form h2,
+.form p {
+  margin: 0;
+}
+
+.form h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.form p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.option {
+  align-items: flex-start;
+  display: flex;
+  font-size: 16px;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.option input {
+  accent-color: var(--accent-color);
+  block-size: 1.25rem;
+  flex: 0 0 auto;
+  inline-size: 1.25rem;
+  margin: 0.15rem 0 0;
+}
+
+.option strong {
+  display: block;
+  font-family: var(--font-display);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.actions button {
+  background: #fff;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  text-transform: uppercase;
+}
+
+.actions button:last-child {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.actions button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (max-width: 575px) {
+  .form {
+    padding: 1.5rem;
+  }
+
+  .actions button {
+    flex: 1 1 auto;
+  }
+}

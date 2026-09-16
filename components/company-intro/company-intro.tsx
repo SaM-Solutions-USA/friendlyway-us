@@ -1,22 +1,19 @@
 import Image from "next/image";
 
 import { Paragraph } from "@/components/paragraph";
-import { SectionHeading } from "@/components/section-heading";
 import type { AboutUsProofPoint } from "@/content/about-us";
 
 import styles from "./company-intro.module.css";
 
 export interface CompanyIntroProps {
-  readonly title: string;
   readonly paragraphs: readonly string[];
   readonly proofPoints: readonly AboutUsProofPoint[];
 }
 
-export function CompanyIntro({ title, paragraphs, proofPoints }: CompanyIntroProps) {
+export function CompanyIntro({ paragraphs, proofPoints }: CompanyIntroProps) {
   return (
-    <section className={styles.root} aria-labelledby="about-us-title">
+    <div className={styles.root}>
       <div className={styles.copy}>
-        <SectionHeading as="h1" id="about-us-title">{title}</SectionHeading>
         {paragraphs.map((paragraph) => <Paragraph key={paragraph}>{paragraph}</Paragraph>)}
       </div>
       <ul className={styles.proofPoints}>
@@ -33,6 +30,6 @@ export function CompanyIntro({ title, paragraphs, proofPoints }: CompanyIntroPro
           </li>
         ))}
       </ul>
-    </section>
+    </div>
   );
 }

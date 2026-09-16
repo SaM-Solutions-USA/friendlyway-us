@@ -1,0 +1,62 @@
+.root {
+  align-content: start;
+  display: grid;
+  gap: 40px;
+}
+
+.copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.profile {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.portrait {
+  border-radius: 50%;
+  height: 108px;
+  object-fit: cover;
+  width: 108px;
+}
+
+.name,
+.role,
+.location {
+  margin: 0;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.role,
+.location {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 575px) {
+  .root {
+    gap: 32px;
+  }
+
+  .portrait {
+    height: 75px;
+    width: 75px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .role,
+  .location {
+    font-size: 14px;
+  }
+}

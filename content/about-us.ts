@@ -1,3 +1,5 @@
+import type { HubSpotFormConfig } from "@/components/hubspot-form";
+
 export interface AboutUsSeoImage {
   readonly src: string;
   readonly width: number;
@@ -58,6 +60,18 @@ export interface AboutUsOffice {
   readonly telephone?: { readonly display: string; readonly href: string };
 }
 
+export interface AboutUsContact {
+  readonly heading: string;
+  readonly paragraphs: readonly string[];
+  readonly profile: {
+    readonly name: string;
+    readonly role: string;
+    readonly location: string;
+    readonly portrait: AboutUsMedia;
+  };
+  readonly form: HubSpotFormConfig;
+}
+
 export interface AboutUsContent {
   readonly title: string;
   readonly seo: AboutUsSeo;
@@ -73,6 +87,7 @@ export interface AboutUsContent {
   readonly clientLogos: readonly AboutUsMedia[];
   readonly partnerLogos: readonly AboutUsMedia[];
   readonly offices: readonly AboutUsOffice[];
+  readonly contact: AboutUsContact;
 }
 
 export const aboutUsContent = {
@@ -177,6 +192,25 @@ export const aboutUsContent = {
     { name: "friendlyway Polska", address: "Żelazna street 59 Warszawa, 00-848, Poland", telephone: { display: "+48-79-290-2058", href: "tel:+48792902058" } },
     { name: "friendlyway Italy (Remote/Partner)", address: "friendlyway supports customers in Italy through local partners and remote services — without maintaining a physical office in the country." },
   ],
+  contact: {
+    heading: "Contact Us",
+    paragraphs: [
+      "Please enter your contact information and any other details you feel are important for us to help you with. Once the form is submitted, our team will be in touch with you shortly.",
+    ],
+    profile: {
+      name: "Dmitry Koshkin",
+      role: "Managing Director",
+      location: "friendlyway USA",
+      portrait: { src: "/wp-content/uploads/foto.png", width: 216, height: 216, alt: "" },
+    },
+    form: {
+      portalId: "50845293",
+      formId: "1d974790-256b-4ef6-860e-bced18225498",
+      region: "na1",
+      formName: "Contact us",
+      consentCategory: "functional",
+    },
+  },
   seo: {
     title: "About Us - friendlyway",
     description: "We are a global provider of digital signage and self-service solutions with over 25 years of experience. Our clients rely on our leading SaaS platform.",

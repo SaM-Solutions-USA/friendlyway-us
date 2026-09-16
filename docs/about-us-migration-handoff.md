@@ -83,6 +83,73 @@ legacy icon, team, and solution variants differ in layout and semantics;
 `team-grid` and `solution-card-grid` are the only meaningful shared patterns
 on this page.
 
+## Content Section Handoff
+
+The legacy page assigns unrelated top and bottom padding to every block. That
+approach creates accidental double spacing when a reusable component such as
+`logo-marquee` is inserted or moved. Introduce shared `content-section` as the
+native outer-layout primitive instead.
+
+`ContentSection` owns the full-width section band, optional background tone,
+1168px content container, 16px horizontal gutter, responsive vertical padding,
+and optional spacing between its immediate children. Content components own
+only their internal layout: heading-to-grid spacing, card gaps, portrait/text
+relationships, CTA offsets, and media dimensions.
+
+### Public API
+
+```ts
+interface ContentSectionProps {
+  readonly as?: "section" | "div" | "aside";
+  readonly headingId?: string;
+  readonly width?: "content" | "full";
+  readonly paddingBlock?: "none" | "sm" | "md" | "lg" | "xl";
+  readonly paddingBlockStart?: "none" | "sm" | "md" | "lg" | "xl";
+  readonly paddingBlockEnd?: "none" | "sm" | "md" | "lg" | "xl";
+  readonly gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl";
+  readonly tone?: "default" | "muted";
+  readonly bleed?: "none" | "background";
+  readonly children: ReactNode;
+}
+```
+
+- `as` defaults to `section`. Use `div` only when a parent section already
+  supplies the landmark, such as the two regional team grids.
+- `headingId` maps to `aria-labelledby`; the consumer owns the heading and its
+  semantic level.
+- `width="content"` is the default 1168px container. `full` removes the
+  container constraint and its gutter.
+- `paddingBlock` sets both block edges. `paddingBlockStart` and
+  `paddingBlockEnd` override it for transitions such as hero-to-intro.
+- `gap` creates a vertical stack gap only between direct children. It does not
+  reset paragraph margins or replace internal component layout.
+- `tone="muted"` provides the future contact-panel background. With
+  `bleed="background"`, the background fills the viewport while content stays
+  constrained to `width="content"`.
+
+Start with the following responsive scale, kept inside the CSS Module until a
+second page confirms the values: `none` 0, `xs` 8px, `sm` 24px, `md` 40px,
+`lg` 64px, and `xl` 96px. Reduce `md` through `xl` at the 575px breakpoint.
+
+### Refactor Sequence
+
+1. Create `components/content-section/` with the API above, CSS Module, and
+   barrel export. Do not add global section-spacing selectors.
+2. Convert current About Us content component roots from `section` to `div`
+   and remove their outer width, horizontal gutter, and block padding. Preserve
+   semantic substructure and component-internal gaps.
+3. Use `ContentSection` in `about-us-page` for every top-level page section.
+   Keep the editorial heading/paragraph map inline; it has one use and does not
+   justify an `editorial-sections` component.
+4. Group the "Meet Our Friendly Team" heading and both regional `team-grid`
+   instances in one `ContentSection`, using `gap` for their shared rhythm.
+5. Apply explicit padding variants to hero, introduction, marquee, editorial,
+   grids, and the future contact panel. Do not encode adjacency rules in child
+   components.
+6. Compare desktop and mobile flow after each group. Confirm no adjacent
+   sections accumulate padding, and verify components still render sensibly in
+   isolation.
+
 ## Cross-Page Reuse Assessment
 
 The requested legacy-route comparison on 2026-09-15 covers `/`,

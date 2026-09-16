@@ -10,7 +10,7 @@ export interface AboutHeroProps {
 
 export function AboutHero({ media }: AboutHeroProps) {
   return (
-    <section className={styles.root} aria-label="About friendlyway">
+    <div className={styles.root}>
       <Image
         className={styles.image}
         src={media.src}
@@ -20,6 +20,6 @@ export function AboutHero({ media }: AboutHeroProps) {
         sizes="(max-width: 1199px) calc(100vw - 3rem), 1136px"
         preload
       />
-    </section>
+    </div>
   );
 }

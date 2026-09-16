@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { ConsentSettings } from "@/components/consent-settings";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WelcomeBanner } from "@/components/welcome-banner";
@@ -27,6 +28,7 @@ export function AppShell({ children, currentPathname }: AppShellProps) {
       />
       <main>{children}</main>
       <SiteFooter footer={siteContent.footer} />
+      <ConsentSettings />
     </div>
   );
 }

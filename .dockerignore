@@ -1,0 +1,13 @@
+.git
+.next
+node_modules
+artifacts
+docs
+tests
+*.tsbuildinfo
+*.log
+.env*
+.playwright-mcp
+Dockerfile
+docker-compose.yml
+docker-compose.yaml

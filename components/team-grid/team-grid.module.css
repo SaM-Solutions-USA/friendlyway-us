@@ -1,4 +1,4 @@
-.root { margin: 0 auto; padding: 2rem 1rem; width: min(100%, 1168px); }
+.root { }
 .description { font-size: 18px; font-weight: 700; margin: 1em 0; }
 .grid { display: grid; gap: 30px 32px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .member { align-items: flex-start; display: flex; flex-direction: column; font-size: 20px; }

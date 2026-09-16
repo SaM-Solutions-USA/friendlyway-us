@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { SectionHeading } from "@/components/section-heading";
 import type { AboutUsMedia } from "@/content/about-us";
 
 import styles from "./logo-marquee.module.css";
@@ -24,10 +23,7 @@ export function LogoMarquee({ logos, mode = "static" }: LogoMarqueeProps) {
   ));
 
   return (
-    <section className={styles.root} aria-labelledby="clients-heading" data-mode={mode}>
-      <div className={styles.heading}>
-        <SectionHeading as="h2" id="clients-heading">Our Clients</SectionHeading>
-      </div>
+    <div className={styles.root} data-mode={mode}>
       {mode === "scroll" ? (
         <div className={styles.viewport} tabIndex={0} aria-label="Client logos">
           <div className={styles.track}>
@@ -36,6 +32,6 @@ export function LogoMarquee({ logos, mode = "static" }: LogoMarqueeProps) {
           </div>
         </div>
       ) : <ul className={styles.list}>{renderLogos()}</ul>}
-    </section>
+    </div>
   );
 }
