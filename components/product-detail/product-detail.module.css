@@ -1,0 +1,12 @@
+.root { display: grid; gap: 64px; grid-template-columns: 615px minmax(0, 1fr); }
+.content { min-width: 0; }
+.content > h2 { font-size: 24px; line-height: 1.3; }
+.description { font-size: 18px; line-height: 1.5; margin-top: 8px; }
+.action { margin-top: 32px; }
+.specifications { margin-top: 40px; }
+.specifications h3 { font-family: var(--font-body); font-size: 18px; line-height: 1.5; margin-bottom: 16px; }
+.specifications section + section { margin-top: 24px; }
+.specifications ul { display: grid; gap: 8px; }
+.specifications li { font-size: 18px; line-height: 1.5; }
+.specifications li::before { color: var(--accent-color); content: "+"; font-weight: 700; margin-right: 12px; }
+@media (max-width: 767px) { .root { grid-template-columns: minmax(0, 1fr); } .action { margin-top: 24px; } }

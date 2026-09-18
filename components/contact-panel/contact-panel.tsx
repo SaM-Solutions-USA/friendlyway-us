@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 import { Paragraph } from "@/components/paragraph";
-import type { AboutUsContact } from "@/content/about-us";
+import type { ContentContactProfile } from "@/content/types";
 
 import styles from "./contact-panel.module.css";
 
 export interface ContactPanelProps {
   readonly paragraphs: readonly string[];
-  readonly profile: AboutUsContact["profile"];
+  readonly profile: ContentContactProfile;
 }
 
 export function ContactPanel({ paragraphs, profile }: ContactPanelProps) {

@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-import type { AboutUsMedia } from "@/content/about-us";
+import type { ContentMedia } from "@/content/types";
 
 import styles from "./about-hero.module.css";
 
 export interface AboutHeroProps {
-  readonly media: AboutUsMedia;
+  readonly media: ContentMedia;
 }
 
 export function AboutHero({ media }: AboutHeroProps) {

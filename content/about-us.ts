@@ -1,4 +1,12 @@
 import type { HubSpotFormConfig } from "@/components/hubspot-form";
+import type {
+  ContentCard,
+  ContentContactProfile,
+  ContentMedia,
+  ContentOffice,
+  ContentProofPoint,
+  ContentTeamMember,
+} from "@/content/types";
 
 export interface AboutUsSeoImage {
   readonly src: string;
@@ -23,52 +31,25 @@ export interface AboutUsSeo {
   readonly socialImage: AboutUsSeoImage;
 }
 
-export interface AboutUsMedia {
-  readonly src: string;
-  readonly srcSet?: string;
-  readonly width: number;
-  readonly height: number;
-  readonly alt: string;
-}
+export type AboutUsMedia = ContentMedia;
 
-export interface AboutUsProofPoint {
-  readonly icon: AboutUsMedia;
-  readonly label: string;
-}
+export type AboutUsProofPoint = ContentProofPoint;
 
 export interface AboutUsEditorialSection {
   readonly heading: string;
   readonly paragraphs: readonly string[];
 }
 
-export interface AboutUsTeamMember {
-  readonly name: string;
-  readonly role: string;
-  readonly portrait: AboutUsMedia;
-}
+export type AboutUsTeamMember = ContentTeamMember;
 
-export interface AboutUsCard {
-  readonly title: string;
-  readonly description?: string;
-  readonly href?: string;
-  readonly image?: AboutUsMedia;
-}
+export type AboutUsCard = ContentCard;
 
-export interface AboutUsOffice {
-  readonly name: string;
-  readonly address: string;
-  readonly telephone?: { readonly display: string; readonly href: string };
-}
+export type AboutUsOffice = ContentOffice;
 
 export interface AboutUsContact {
   readonly heading: string;
   readonly paragraphs: readonly string[];
-  readonly profile: {
-    readonly name: string;
-    readonly role: string;
-    readonly location: string;
-    readonly portrait: AboutUsMedia;
-  };
+  readonly profile: ContentContactProfile;
   readonly form: HubSpotFormConfig;
 }
 

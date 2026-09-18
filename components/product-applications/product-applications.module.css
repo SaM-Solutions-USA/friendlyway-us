@@ -1,0 +1,19 @@
+.root { align-items: stretch; display: flex; flex-direction: column; }
+.intro { margin-bottom: 20px; }
+.intro p { font-size: 18px; line-height: 1.7; margin-top: 20px; }
+.list { border-bottom: .75px solid rgba(0, 0, 0, .3); border-top: .75px solid rgba(0, 0, 0, .3); }
+.list li { font-size: 18px; line-height: 1.5; padding: .75em 0 .75em 25px; position: relative; }
+.list li + li { border-top: .75px solid rgba(0, 0, 0, .3); }
+.list li::before { color: var(--accent-color); content: "\2713"; font-size: 20px; font-weight: 600; left: 0; line-height: 1.25; position: absolute; }
+.action { align-self: flex-start; margin-top: 48px; }
+
+@media (max-width: 475px) {
+	.action {
+		align-self: stretch;
+	}
+
+	.action > a {
+		text-align: center;
+		width: 100%;
+	}
+}

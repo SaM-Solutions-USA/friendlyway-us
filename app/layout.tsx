@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   // placeholder route. The real homepage/document ownership transfer happens
   // in later migration chunks.
   title: "Bootstrap | friendlyway.us migration",
+  icons: {
+    icon: "/favicon.svg",
+  },
   robots: { index: false, follow: false },
 };
 

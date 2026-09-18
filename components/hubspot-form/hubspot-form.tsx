@@ -19,11 +19,12 @@ export interface HubSpotFormConfig {
 export interface HubSpotFormProps {
   readonly config: HubSpotFormConfig;
   readonly consentAdapter?: ConsentAdapter;
+  readonly id?: string;
 }
 
 type FormStatus = "checking" | "blocked" | "loading" | "ready" | "error";
 
-export function HubSpotForm({ config, consentAdapter }: HubSpotFormProps) {
+export function HubSpotForm({ config, consentAdapter, id }: HubSpotFormProps) {
   const reactId = useId();
   const targetId = `hubspot-form-${reactId.replace(/:/g, "")}`;
   const mountRef = useRef<HTMLDivElement>(null);
@@ -87,7 +88,7 @@ export function HubSpotForm({ config, consentAdapter }: HubSpotFormProps) {
   }, [adapter, config.formId, config.portalId, config.region, hasConsent, retryCount, targetId]);
 
   return (
-    <section aria-busy={status === "checking" || status === "loading"} aria-label={config.formName} className={styles.root}>
+    <section aria-busy={status === "checking" || status === "loading"} aria-label={config.formName} className={styles.root} id={id}>
       {status === "checking" || status === "loading" ? <p className={styles.message}>Loading form...</p> : null}
       {status === "blocked" ? (
         <div className={styles.message}>

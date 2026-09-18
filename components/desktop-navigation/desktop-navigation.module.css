@@ -63,7 +63,7 @@
 
 .link:hover,
 .toggle:hover,
-.item[data-active] > .itemControl > .link,
+.item[data-active]:not(:has(.toggle)) > .itemControl > .link,
 .item[data-open] > .itemControl > .link,
 .item[data-open] > .itemControl > .toggle {
   background: #ebf0f4;

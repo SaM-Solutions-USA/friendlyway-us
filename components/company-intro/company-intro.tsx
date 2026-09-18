@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 import { Paragraph } from "@/components/paragraph";
-import type { AboutUsProofPoint } from "@/content/about-us";
+import type { ContentProofPoint } from "@/content/types";
 
 import styles from "./company-intro.module.css";
 
 export interface CompanyIntroProps {
   readonly paragraphs: readonly string[];
-  readonly proofPoints: readonly AboutUsProofPoint[];
+  readonly proofPoints: readonly ContentProofPoint[];
 }
 
 export function CompanyIntro({ paragraphs, proofPoints }: CompanyIntroProps) {

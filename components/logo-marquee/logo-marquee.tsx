@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-import type { AboutUsMedia } from "@/content/about-us";
+import type { ContentMedia } from "@/content/types";
 
 import styles from "./logo-marquee.module.css";
 
 export interface LogoMarqueeProps {
-  readonly logos: readonly AboutUsMedia[];
+  readonly logos: readonly ContentMedia[];
   readonly mode?: "static" | "scroll";
 }
 
