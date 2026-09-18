@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { counter22Content } from "../content/products.ts";
-import { getProductMetadata, getProductStructuredData } from "../lib/product-seo.ts";
+import { counter22Content } from "../app/products/counter-22/content.ts";
+import { getProductMetadata, getProductStructuredData } from "../app/products/counter-22/seo.ts";
 
 test("Counter 22 SEO maps the editable legacy baseline to Next metadata", () => {
   const metadata = getProductMetadata(counter22Content.seo);

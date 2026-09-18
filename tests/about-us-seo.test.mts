@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { aboutUsContent } from "../content/about-us.ts";
-import { getAboutUsMetadata, getAboutUsStructuredData } from "../lib/about-us-seo.ts";
+import { aboutUsContent } from "../app/about-us/content.ts";
+import { getAboutUsMetadata, getAboutUsStructuredData } from "../app/about-us/seo.ts";
 
 test("About Us SEO maps the editable legacy baseline to Next metadata", () => {
   const metadata = getAboutUsMetadata(aboutUsContent.seo);

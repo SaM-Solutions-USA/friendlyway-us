@@ -290,28 +290,156 @@ The shared shell is ready to support the first native page when:
 
 ### Content Model
 
-Create typed page data in a predictable location such as `content/`:
+Colocate each route's editorial values and domain/content model with its App
+Router files. A route's `content.ts` represents its source data; its sibling
+`types.ts` defines source-data contracts independently of component props.
+The route's `page.tsx` is the adapter: it loads data, maps it through a
+route-local presenter, prepares metadata/schema, and renders the feature page
+component. Use discriminated section types where blocks differ materially.
+
+### Migrated Route File Organization
+
+The completed `/about-us/` and `/products/counter-22` migrations currently
+keep their data and page-only components at global `content/` and
+`components/` paths. Reorganize them before starting another page migration so
+routes own source data, feature components own UI, and no component depends on
+a route module.
 
 ```text
-content/
-  site.ts
-  home.ts
-  marketing-pages.ts
-  products.ts
-  solutions.ts
-  pricing.ts
-  case-studies.ts
+app/
+  about-us/
+    layout.tsx                         # Route shell selection
+    page.tsx                           # Load, prepare, and render AboutUsPage
+    content.ts                         # About Us editorial values only
+    types.ts                           # About Us source-data model
+    presenter.ts                       # About Us content -> UI props mapping
+    seo.ts                              # About Us metadata and schema helpers
+  products/
+    types.ts                           # Product-family source-data model
+    content.ts                         # Registry/lookup for migrated products
+    counter-22/
+      layout.tsx                       # Route shell selection
+      page.tsx                         # Load, prepare, and render ProductPage
+      content.ts                       # Counter 22 editorial values only
+      types.ts                         # Counter 22 source-data refinements
+      presenter.ts                     # Counter 22 content -> ProductPage props
+      seo.ts                            # Product metadata and schema helpers
 components/
-  {component-name}/
-    index.ts
-    {component-name}.tsx
-    {component-name}.module.css
+  shared/                              # Cross-feature UI APIs only
+    content/
+      contact-panel/
+      logo-marquee/
+      product-grid/
+      structured-data/
+    forms/
+      consent-settings/
+      hubspot-form/
+    layout/
+      content-section/
+      two-column-split/
+    shell/
+      app-shell/
+      desktop-navigation/
+      locale-switcher/
+      mobile-navigation/
+      site-footer/
+      site-header/
+      welcome-banner/
+    typography/
+      paragraph/
+      section-heading/
+  about-us/                            # About Us feature UI
+    about-us-page/
+    about-hero/
+    company-intro/
+    team-grid/
+    solution-card-grid/
+    partner-grid/
+    office-grid/
+  products/                            # Reusable product-detail feature UI
+    product-page/
+    product-hero/
+    product-features/
+    product-qr-callout/
+    product-applications/
+    product-platform/
+    product-industries/
+    product-detail/
+    product-gallery/
+    product-action/
+    faq/
 ```
 
-Page-specific editorial text, asset references, alt text, links, CTAs,
-metadata, structured data, and section order belong in typed data. Route files
-remain thin server components that select data and render a page-family
-component. Use discriminated section types where blocks differ materially.
+Each meaningful component defines and exports its own prop types from its
+feature folder. `ProductPage` composes its child component props, but product
+source data does not import that UI model. The route presenter is the only
+module allowed to depend on both route content types and component prop types.
+Do not create a global content-types module. Simple primitives such as
+`Paragraph` and `ContentSection` expose props directly rather than speculative
+data-model types.
+
+The resulting dependency direction is intentionally one-way:
+
+```text
+app/<route>/types.ts <- app/<route>/content.ts
+app/<route>/types.ts + components/<feature>/* <- app/<route>/presenter.ts
+app/<route>/content.ts + presenter.ts + components/<feature>/* <- app/<route>/page.tsx
+```
+
+Components never import from `app/` or route content. Route content never
+imports from `components/`. Shared components do not import from either
+feature tree. This leaves the content model free to evolve toward a CMS or
+other source without coupling it to React props.
+
+#### Move Map
+
+| Current location | Destination | Reason |
+| --- | --- | --- |
+| `content/about-us.ts` | `app/about-us/content.ts` and `app/about-us/types.ts` | Separate About Us values from its route source-data model. |
+| `lib/about-us-seo.ts` | `app/about-us/seo.ts` | It is meaningful only for the About Us metadata/schema contract. |
+| `components/about-us-page/`, `about-hero/`, `company-intro/`, `team-grid/`, `solution-card-grid/`, `partner-grid/`, `office-grid/` | `components/about-us/` with the same component folders | They express the About Us feature and have no approved second consumer. |
+| `content/products.ts` | `app/products/counter-22/content.ts`, `app/products/counter-22/types.ts`, and `app/products/types.ts` | Separate Counter 22 values and refinements from the reusable product family model. |
+| `lib/product-seo.ts` | `app/products/counter-22/seo.ts` | It currently maps only Counter 22's metadata and Product schema. |
+| `components/product-page/`, `product-hero/`, `product-features/`, `product-qr-callout/`, `product-applications/`, `product-platform/`, `product-industries/`, `product-detail/`, `product-gallery/`, `product-action/`, `faq/` | `components/products/` with the same component folders | These form a generic product-detail feature. Counter 22 is its first data instance, not its ownership boundary. |
+| `content/types.ts` | Dissolve into route source-data types and component-owned prop types | Prevent shared content contracts from becoming a dependency hub. |
+| `components/contact-panel/`, `content-section/`, `hubspot-form/`, `logo-marquee/`, `paragraph/`, `product-grid/`, `section-heading/`, `structured-data/`, `two-column-split/` | `components/shared/` with the same component folders | Existing or intended reuse crosses feature boundaries. |
+
+#### Reorganization Sequence
+
+1. Inventory every import from `content/about-us.ts`, `content/products.ts`,
+   and `content/types.ts`. Classify it as a route-content model, component
+   prop, or shared component prop before moving files.
+2. Establish the `components/shared/`, `components/about-us/`, and
+   `components/products/` feature folders. Move files without changing markup,
+   CSS Modules, client boundaries, or public props; update all imports and
+   barrel exports in the same change.
+3. Create `app/about-us/types.ts` and move values to
+   `app/about-us/content.ts`. Add `presenter.ts` that maps About Us source data
+   to the props of `AboutUsPage` and its feature components. Keep SEO mapping
+   in `app/about-us/seo.ts` and make `page.tsx` only orchestrate loading,
+   presentation, metadata, and schema output.
+4. Define the reusable product source-data model in `app/products/types.ts`.
+   Move Counter 22 values and any true Counter 22 refinements into
+   `app/products/counter-22/`, then add a Counter 22 presenter that maps the
+   source model to the generic `components/products/product-page` API.
+5. Keep `app/products/counter-22/page.tsx` as an explicit route while legacy
+   product URLs still rely on the catch-all handler. Do not add
+   `app/products/[slug]/page.tsx` until unknown product slugs can delegate to
+   the legacy resolver or every product URL is supplied by the product data
+   source.
+6. Add `app/products/content.ts` only when there are two migrated products or
+   a dynamic route needs a registry. It imports product values and exposes
+   lookup by slug; it does not become the owner of the product model.
+7. Update focused tests to import the route's `content.ts` and `seo.ts`.
+   Add a lightweight import-boundary check: `components/**` may not import
+   `app/**`, and `app/**/content.ts` may not import `components/**`.
+8. After each feature move, run its focused metadata/schema tests and the
+   production build. Compare native About Us and Counter 22 output at desktop
+   and mobile widths, then verify an unrelated legacy URL and public asset.
+9. For each new route, create route data/types/presenter first, then place
+   its UI under `components/<feature>/`. Promote UI to `components/shared/`
+   only after a second approved consumer confirms the same semantic and visual
+   contract.
 
 ### Shared Components
 

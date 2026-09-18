@@ -57,25 +57,29 @@ URLs rather than duplicate assets.
 
 ## Component Boundaries
 
-Create each component under `components/{component-name}/` with an `index.ts`
-public export, implementation file, and CSS Module. Do not expose
-implementation-only types from the barrel.
+Place the About Us UI under `components/about-us/{component-name}/`, with an
+`index.ts` public export, implementation file, CSS Module, and any
+component-owned prop types. Shared UI remains under `components/shared/`.
+Route content must not import component types; `app/about-us/presenter.ts`
+maps the route's content model to these component props.
 
 ```text
 components/
-  about-us-page/             # Server page composition and section rhythm
-  about-hero/                # Server hero image
-  company-intro/             # Server intro copy and proof-point row
-  logo-marquee/              # Client only if continuous scrolling is retained
-  section-heading/           # Server semantic h1-h3 typography primitive
-  paragraph/                 # Server body-copy typography primitive
-  team-grid/                 # Server people profiles, used twice
-  solution-card-grid/        # Server linked/unlinked solution cards and CTA
-  product-grid/              # Server hardware cards and CTA
-  partner-grid/              # Server partner-logo grid
-  office-grid/               # Server address and telephone cards
-  contact-panel/             # Server contact copy and person profile
-  hubspot-form/              # Client consent-gated provider adapter
+  about-us/
+    about-us-page/           # Server page composition and section rhythm
+    about-hero/              # Server hero image
+    company-intro/           # Server intro copy and proof-point row
+    team-grid/               # Server people profiles, used twice
+    solution-card-grid/      # Server linked/unlinked solution cards and CTA
+    partner-grid/            # Server partner-logo grid
+    office-grid/             # Server address and telephone cards
+  shared/
+    logo-marquee/            # Client only if continuous scrolling is retained
+    section-heading/         # Server semantic h1-h3 typography primitive
+    paragraph/               # Server body-copy typography primitive
+    product-grid/            # Server hardware cards and CTA
+    contact-panel/           # Server contact copy and person profile
+    hubspot-form/            # Client consent-gated provider adapter
 ```
 
 Do not create a generic WordPress-derived `block-icons` abstraction. The
@@ -188,7 +192,10 @@ and any CTA or media; neither primitive becomes a generic rich-text renderer.
 
 ## Data Model
 
-Add `content/about-us.ts` for immutable typed page data. It should own:
+Use `app/about-us/content.ts` for immutable page values and
+`app/about-us/types.ts` for the independent About Us source-data model. The
+route-local presenter maps that model to component props. The content module
+should own:
 
 - Hero source, dimensions, and alt text.
 - Title, paragraphs, and proof points.
@@ -202,9 +209,10 @@ Add `content/about-us.ts` for immutable typed page data. It should own:
   component markup so approved values can change without editing the route.
 - Optional `HubSpotFormConfig`; leave it absent until its approval gate passes.
 
-`app/about-us/page.tsx` remains a thin server component: select the data,
-render `AboutUsPage`, and map `seo` to Next metadata. Editorial strings, media
-URLs, links, and SEO values do not belong in route or component markup.
+`app/about-us/page.tsx` remains a thin server component: select the data, map
+it through `presenter.ts`, render `AboutUsPage`, and map `seo` to Next
+metadata. Editorial strings, media URLs, links, and SEO values do not belong
+in route or component markup.
 
 ## Interaction and Accessibility
 

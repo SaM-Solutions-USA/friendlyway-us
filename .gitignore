@@ -20,3 +20,5 @@ yarn-error.log*
 
 # MCP
 .playwright-mcp
+artifacts/**
+docs/**

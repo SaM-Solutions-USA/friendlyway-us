@@ -11,8 +11,8 @@
     "test:renderer": "node --experimental-strip-types --test tests/page-renderer.test.mts",
     "test:welcome-banner": "node --experimental-strip-types --test components/welcome-banner/welcome-banner.test.mts",
     "test:structured-data": "node --experimental-strip-types --test components/structured-data/structured-data.test.mts",
-    "test:consent": "node --experimental-strip-types --test lib/consent/consent-adapter.test.mts",
-    "test:hubspot-form": "node --experimental-strip-types --test components/hubspot-form/load-hubspot-forms.test.mts",
+    "test:consent": "node --experimental-strip-types --test components/shared/forms/consent/consent-adapter.test.mts",
+    "test:hubspot-form": "node --experimental-strip-types --test components/shared/forms/hubspot-form/load-hubspot-forms.test.mts",
     "test:legacy-route": "node --experimental-strip-types --test tests/legacy-route-handler.test.mts",
     "validate:content": "node --experimental-strip-types scripts/validate-content.mts"
   },

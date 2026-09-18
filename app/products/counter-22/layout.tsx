@@ -1,4 +1,4 @@
-import { AppShell } from "@/components/app-shell";
+import { AppShell } from "@/components/shared/shell/app-shell";
 
 export default function Counter22Layout({
   children,

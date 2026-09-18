@@ -1,5 +1,0 @@
-import Image from "next/image";
-
-import type { ContentOffice } from "@/content/types";
-import styles from "./office-grid.module.css";
-export function OfficeGrid({ offices }: { readonly offices: readonly ContentOffice[] }) { return <div className={styles.root}><div className={styles.grid}>{offices.map((office) => <article className={styles.office} key={office.name}><h3 className={styles.name}>{office.name}</h3><address className={styles.address}><Image className={styles.icon} src="/wp-content/uploads/icon-location-1.svg" width={24} height={25} alt="" />{office.address}</address>{office.telephone ? <p className={styles.telephone}><Image className={styles.icon} src="/wp-content/uploads/icon-call.svg" width={24} height={25} alt="" /><a href={office.telephone.href}>{office.telephone.display}</a></p> : null}</article>)}</div></div>; }
