@@ -1,0 +1,37 @@
+.header {
+	margin-bottom: 64px;
+	text-align: center;
+}
+
+.header h2 {
+	color: #373b40;
+	font: 700 24px/1.33 var(--font-display);
+	margin: auto;
+	max-width: 1014px;
+}
+
+.header h2 span {
+	color: var(--accent-color);
+}
+
+.header p {
+	color: #373b40;
+	font-size: 18px;
+	line-height: 1.375;
+	margin: 16px auto 0;
+	max-width: 545px;
+}
+
+.formArea {
+	margin: auto;
+	max-width: 666px;
+	width: 100%;
+}
+
+@media (max-width: 991px) {
+	.header h2 { font-size: 20px; }
+}
+
+@media (max-width: 475px) {
+	.header { margin-bottom: 48px; }
+}

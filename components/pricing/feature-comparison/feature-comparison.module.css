@@ -1,0 +1,24 @@
+.root { display: grid; gap: 16px; }
+.heading { color: #222; font: 700 32px/1.25 var(--font-display); margin: 0 auto 24px; max-width: 884px; text-align: center; }
+.root details { background: #fff; border: 1px solid #2bb6b7; border-radius: 8px; min-width: 0; }
+.root summary { color: #222; cursor: pointer; font: 600 18px/1.33 var(--font-display); list-style: none; padding: 16px 56px 16px 16px; position: relative; }
+.root summary::-webkit-details-marker { display: none; }
+.root summary::after { background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.68544 11.0001V12.9999H10.9993V23.3137H12.999V12.9999H23.3129V11.0001H12.999V0.686292H10.9993V11.0001H0.68544Z' fill='%23222222' fill-opacity='0.4'/%3E%3C/svg%3E"); background-position: center; background-size: contain; content: ""; height: 24px; position: absolute; right: 16px; top: 16px; transition: transform 0.25s ease; width: 24px; }
+.root details[open] summary::after { transform: rotate(45deg); }
+.root details[data-closing="true"] summary::after { transform: rotate(0); }
+.tableScroll { display: block !important; height: 0; interpolate-size: allow-keywords; min-width: 0; opacity: 0; overflow: hidden; transition: height 0.25s ease, opacity 0.25s ease; }
+.root details[open] .tableScroll { height: auto; opacity: 1; }
+.root details[data-closing="true"] .tableScroll, .root details[data-opening="true"] .tableScroll { height: 0; opacity: 0; }
+.root table { --check-color: #5eaba1; border-collapse: collapse; margin: 0 16px 16px; min-width: 784px; width: calc(100% - 32px); }
+.root th { background: #fff; padding: 16px; }
+.root tbody th, .root td { font-size: 14px; line-height: 1.42; padding: 8px; }
+.root tbody tr { border-color: #d5dde3; border-style: solid; border-width: 1px 0; }
+.root tbody th { color: #323436; font-weight: 600; min-width: 185px; padding-left: 0; text-align: left; }
+.root td { font-weight: 500; text-align: center; }
+.root thead th:not(:first-child) { font-family: var(--font-display); font-weight: 600; line-height: 1.5; text-align: center; width: 180px; }
+.root td span { color: var(--check-color); font-size: 18px; font-weight: 700; line-height: 16px; }
+@media (max-width: 991px) { .root thead th:not(:first-child) { width: 140px; } }
+@media (prefers-reduced-motion: reduce) { .tableScroll, .root summary::after { transition: none; } }
+@media (max-width: 767px) { .root details[open] .tableScroll { overflow-x: auto; } }
+@media (max-width: 575px) { .root table { min-width: 585px; } }
+@media (max-width: 475px) { .root summary { font-size: 16px; } .root summary::after { height: 20px; width: 20px; } }

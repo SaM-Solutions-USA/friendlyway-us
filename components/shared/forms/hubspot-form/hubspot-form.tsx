@@ -23,6 +23,22 @@ export interface HubSpotFormProps {
 }
 
 type FormStatus = "checking" | "blocked" | "loading" | "ready" | "error";
+const LEGACY_STYLESHEET_URL = "/wp-content/themes/friendlyway/assets/HubSpot/style.css";
+
+function applyLegacyStyles(mount: HTMLDivElement | null) {
+  const iframeDocument = mount?.querySelector<HTMLIFrameElement>("iframe.hs-form-iframe")?.contentDocument;
+  const form = iframeDocument?.querySelector(".hs-form");
+
+  if (!iframeDocument || !form || iframeDocument.querySelector(`link[href="${LEGACY_STYLESHEET_URL}"]`)) {
+    return;
+  }
+
+  form.classList.add("hs-form_style_1");
+  const stylesheet = iframeDocument.createElement("link");
+  stylesheet.href = LEGACY_STYLESHEET_URL;
+  stylesheet.rel = "stylesheet";
+  iframeDocument.head.append(stylesheet);
+}
 
 export function HubSpotForm({ config, consentAdapter, id }: HubSpotFormProps) {
   const reactId = useId();
@@ -72,6 +88,7 @@ export function HubSpotForm({ config, consentAdapter, id }: HubSpotFormProps) {
           formId: config.formId,
           region: config.region,
           target: `#${targetId}`,
+          onFormReady: () => applyLegacyStyles(mountRef.current),
         });
         setStatus("ready");
       })

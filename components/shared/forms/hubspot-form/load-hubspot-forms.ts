@@ -4,6 +4,7 @@ interface HubSpotForms {
     readonly formId: string;
     readonly region?: string;
     readonly target: string;
+    readonly onFormReady?: (form: unknown) => void;
   }): void;
 }
 

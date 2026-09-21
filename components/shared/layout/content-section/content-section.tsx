@@ -9,6 +9,7 @@ export type ContentSectionTone = "default" | "muted" | "sand";
 
 export interface ContentSectionProps {
   readonly as?: ContentSectionElement;
+  readonly id?: string;
   readonly labelledBy?: string;
   readonly width?: ContentSectionWidth;
   readonly paddingBlock?: ContentSectionSpacing;
@@ -25,6 +26,7 @@ function getSpacingClass(prefix: string, spacing: ContentSectionSpacing) {
 
 export function ContentSection({
   as: Element = "section",
+  id,
   labelledBy,
   width = "content",
   paddingBlock = "none",
@@ -38,7 +40,7 @@ export function ContentSection({
   const paddingEnd = paddingBlockEnd ?? paddingBlock;
 
   return (
-    <Element aria-labelledby={labelledBy} className={`${styles.band} ${styles[tone]}`}>
+    <Element aria-labelledby={labelledBy} className={`${styles.band} ${styles[tone]}`} id={id}>
       <div
         className={[
           styles.inner,

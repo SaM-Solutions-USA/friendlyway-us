@@ -1,9 +1,80 @@
 /* ---------------------------------------------------------------------------
- * Visual tokens — legacy CTA accent (style.css :root, body).
+ * Local font faces — mirrored from legacy style.css (lines 12–75).
+ * All files live under public/wp-content/themes/friendlyway/fonts/.
+ * ------------------------------------------------------------------------ */
+
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Poppins';
+  src: url('/wp-content/themes/friendlyway/fonts/Poppins/Poppins-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Poppins';
+  src: url('/wp-content/themes/friendlyway/fonts/Poppins/Poppins-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Poppins';
+  src: url('/wp-content/themes/friendlyway/fonts/Poppins/Poppins-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Poppins';
+  src: url('/wp-content/themes/friendlyway/fonts/Poppins/Poppins-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Open Sans';
+  src: url('/wp-content/themes/friendlyway/fonts/OpenSans/OpenSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Open Sans';
+  src: url('/wp-content/themes/friendlyway/fonts/OpenSans/OpenSans-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Open Sans';
+  src: url('/wp-content/themes/friendlyway/fonts/OpenSans/OpenSans-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Open Sans';
+  src: url('/wp-content/themes/friendlyway/fonts/OpenSans/OpenSans-Bold.woff2') format('woff2');
+}
+
+/* ---------------------------------------------------------------------------
+ * Visual tokens — legacy CTA accent + font families (style.css :root, body).
  * ------------------------------------------------------------------------ */
 
 :root {
   --accent-color: #f96240;
+  --font-body: "Open Sans", sans-serif;
+  --font-display: Poppins, sans-serif;
 }
 
 /* Minimal bootstrap styles. No external fonts or assets. */
@@ -30,7 +101,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body, sans-serif);
+  font-family: var(--font-body);
   line-height: 1.5;
   color: #111;
   background: #fff;
