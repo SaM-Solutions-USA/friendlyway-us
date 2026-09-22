@@ -16,7 +16,12 @@ export interface EmergencyMusteringContent {
     readonly title: string;
     readonly description: string;
     readonly canonicalPath: string;
-    readonly robots: { readonly index: boolean; readonly follow: boolean };
+    readonly robots: {
+      readonly index: boolean;
+      readonly follow: boolean;
+      readonly noarchive: boolean;
+      readonly nosnippet: boolean;
+    };
     readonly openGraph: { readonly locale: string; readonly type: "article"; readonly updatedTime: string };
     readonly socialImage: EmergencyMusteringMedia;
   };

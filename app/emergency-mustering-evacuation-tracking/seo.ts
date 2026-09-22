@@ -29,3 +29,31 @@ export function getEmergencyMusteringMetadata(seo: EmergencyMusteringContent["se
     },
   };
 }
+
+export function getEmergencyMusteringStructuredData(content: EmergencyMusteringContent) {
+  const url = new URL(content.seo.canonicalPath, siteUrl).toString();
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: content.hero.title, item: url },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: content.faq.items.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      },
+    ],
+  } as const;
+}

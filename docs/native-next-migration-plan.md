@@ -11,9 +11,36 @@ pages. Native routes take precedence over the catch-all legacy route handler.
 - `app/route.ts` serves the static legacy homepage.
 - `app/[...slug]/route.ts` serves all other matching static legacy documents.
 - `lib/resolve-legacy-page.ts` safely resolves documents only below `legacy/`.
-- `npm run build` passed on 2026-09-15.
-- The application does not yet contain native page components.
+- `npm run build` passed on 2026-09-22.
+- Native App Router pages are live for About Us, Counter 22, Emergency
+  Mustering, and Pricing.
 - Local fonts and WordPress browser assets are already available under `public/`.
+
+## Migration Status
+
+Completed native routes:
+
+- `/about-us/`
+- `/products/counter-22`
+- `/emergency-mustering-evacuation-tracking`
+- `/pricing`
+
+The next route is `/solutions-for-manufacturing`. It is the remaining full
+solution landing page and can reuse the established shell, contact/form, FAQ,
+logo-strip, and `components/solutions/` patterns. Migrate the homepage only
+after Manufacturing because it remains the larger integration composition.
+
+`/visitor-management-solution/` and `/case-studies/` remain blocked until an
+approved source for their redirect-only exports supplies content, assets, and
+SEO ownership.
+
+### Active Closeout Items
+
+1. Repair or remove stale package scripts before using them as migration
+   validation: `test:content`, `test:renderer`, and `validate:content`
+   currently reference files that are absent from the workspace.
+2. Capture the Manufacturing legacy baseline and create its route-local
+   content, types, presenter, SEO helper, and feature UI before migration.
 
 ## Compatibility Contract
 
@@ -28,16 +55,16 @@ pages. Native routes take precedence over the catch-all legacy route handler.
 
 ## Requested Route Inventory
 
-| Route | Legacy state | Scope | Migration family |
+| Route | Current state | Scope | Migration family |
 | --- | --- | --- | --- |
-| `/` | Full export: 10 headings, 94 images | High | Homepage composition |
+| `/` | Legacy compatibility handler; full export: 10 headings, 94 images | High | Homepage composition |
 | `/visitor-management-solution/` | Immediate redirect to `https://www.friendlyway.com/visitor-management-solution/` | Blocked on source content | Solution landing page |
-| `/emergency-mustering-evacuation-tracking` | 20 headings, 64 images, FAQ | High | Solution landing page |
-| `/products/counter-22` | 18 headings, 54 images, FAQ, product-detail modal | Medium-high | Product detail |
-| `/solutions-for-manufacturing` | 17 headings, 85 images, FAQ, slider/comparison content | High | Solution landing page |
-| `/pricing` | 2 headings, 41 images, pricing plans, hardware tabs/comparison | High | Dedicated pricing page |
+| `/emergency-mustering-evacuation-tracking` | Native | High | Solution landing page |
+| `/products/counter-22` | Native | Medium-high | Product detail |
+| `/solutions-for-manufacturing` | Legacy export: 17 headings, 85 images, FAQ, slider/comparison content; next | High | Solution landing page |
+| `/pricing` | Native | High | Dedicated pricing page |
 | `/case-studies/` | Immediate redirect to `https://www.friendlyway.com/case-studies/` | Blocked on source content | Case-study archive |
-| `/about-us/` | 10 headings, 72 images, office/partner/client sections | Medium | Marketing page |
+| `/about-us/` | Native | Medium | Marketing page |
 
 The figures above count the exported document, including shared chrome. They
 are useful for sizing and parity checks, not for prescribing implementation.
@@ -580,9 +607,9 @@ Deliverables:
 
 ### Phase 4: Solution Landing Family
 
-Migrate `/emergency-mustering-evacuation-tracking` as the representative
-solution landing page, then reuse that renderer for
-`/solutions-for-manufacturing`.
+Emergency Mustering is the completed representative solution landing page.
+Migrate `/solutions-for-manufacturing` next, reusing the existing solution
+component family only where its visual and semantic contract fits.
 
 Additional section variants:
 
@@ -592,7 +619,7 @@ Additional section variants:
 
 ### Phase 5: Dedicated Pricing Experience
 
-Migrate `/pricing` after shared controls are proven.
+Completed: `/pricing` is native after shared controls were proven.
 
 Deliverables:
 
@@ -603,9 +630,9 @@ Deliverables:
 
 ### Phase 6: Homepage
 
-Migrate `/` after the shared blocks exist. Compose the page from typed section
-data instead of reproducing WordPress markup. Its large image/link count makes
-it a final integration page rather than the best initial route.
+Migrate `/` after Manufacturing and the shared blocks exist. Compose the page
+from typed section data instead of reproducing WordPress markup. Its large
+image/link count keeps it as the final full-export integration page.
 
 ### Phase 7: Redirect-Only Routes
 

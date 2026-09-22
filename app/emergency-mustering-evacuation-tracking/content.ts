@@ -5,7 +5,7 @@ export const emergencyMusteringContent = {
     title: "Emergency Mustering & Evacuation Tracking Software | friendlyway",
     description: "friendlyway Emergency Mustering helps organizations ensure safety and compliance during emergencies with real-time accountability, integrations, and detailed reporting.",
     canonicalPath: "/emergency-mustering-evacuation-tracking",
-    robots: { index: false, follow: false },
+    robots: { index: false, follow: false, noarchive: true, nosnippet: true },
     openGraph: { locale: "en_US", type: "article", updatedTime: "2026-01-19T13:24:00+03:00" },
     socialImage: { src: "/wp-content/uploads/fw-rich-snippet-VM.png", width: 1200, height: 630, alt: "friendlyway Emergency Mustering and Evacuation Tracking" },
   },

@@ -11,6 +11,7 @@ import { TestimonialSpotlight } from "@/components/solutions/testimonial-spotlig
 import { UseCaseGrid } from "@/components/solutions/use-case-grid";
 import { ContactPanel } from "@/components/shared/content/contact-panel";
 import { LogoMarquee } from "@/components/shared/content/logo-marquee";
+import { StructuredData } from "@/components/shared/content/structured-data";
 import { HubSpotForm } from "@/components/shared/forms/hubspot-form";
 import { ContentSection } from "@/components/shared/layout/content-section";
 import { TwoColumnSplit } from "@/components/shared/layout/two-column-split";
@@ -18,7 +19,7 @@ import { SectionHeading } from "@/components/shared/typography/section-heading";
 import { Faq } from "@/components/products/faq/faq";
 import { emergencyMusteringContent } from "./content";
 import { createCallToActionProps, createClientLogoProps, createContactFormProps, createContactPanelProps, createEmergencyMusteringHeroProps, createFaqProps, createIntegrationProps, createProcessTimelineProps, createRealWorldCapabilityProps, createSafetyBenefitProps, createSolutionFeatureProps, createSupportingSolutionProps, createTestimonialProps, createUseCaseProps, createWhyFriendlywayProps } from "./presenter";
-import { getEmergencyMusteringMetadata } from "./seo";
+import { getEmergencyMusteringMetadata, getEmergencyMusteringStructuredData } from "./seo";
 
 export const metadata: Metadata = getEmergencyMusteringMetadata(emergencyMusteringContent.seo);
 
@@ -79,6 +80,7 @@ export default function EmergencyMusteringRoute() {
         </div>
         <Faq {...createFaqProps(emergencyMusteringContent)} initiallyOpenIndex={0} />
       </ContentSection>
+      <StructuredData data={getEmergencyMusteringStructuredData(emergencyMusteringContent)} />
     </article>
   );
 }

@@ -1,5 +1,9 @@
 # About Us Migration Handoff
 
+> **Status (2026-09-22): complete and archived.** `/about-us/` is a native
+> route. This document remains as its migration record; active site work is
+> tracked in `docs/native-next-migration-plan.md`.
+
 ## Goal
 
 Replace the static legacy document at `/about-us/` with a native App Router

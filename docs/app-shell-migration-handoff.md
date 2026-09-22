@@ -1,5 +1,11 @@
 # App Shell Migration Handoff
 
+> **Status (2026-09-22): archived implementation record.** The native shell
+> is implemented under `components/shared/shell/` and mounted by the four
+> completed native routes. This document is retained for reference; active
+> route work and deferred product decisions are tracked in
+> `docs/native-next-migration-plan.md`.
+
 ## Goal
 
 Build the reusable native application shell incrementally at `/about-us/`,
