@@ -1,0 +1,84 @@
+.root {
+  display: grid;
+  gap: 35px;
+}
+
+.intro {
+  display: grid;
+  gap: 14px;
+}
+
+.introDescription,
+.description {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 30px 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.grid[data-columns="4"] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.item {
+  min-width: 0;
+}
+
+.icon {
+  display: block;
+  height: 45px;
+  margin-bottom: 15px;
+  object-fit: contain;
+  object-position: left;
+  width: auto;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 15px;
+}
+
+@media (max-width: 1199px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid,
+  .grid[data-columns="4"] {
+    gap: 15px 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 475px) {
+  .grid,
+  .grid[data-columns="4"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .introDescription,
+  .description {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+}

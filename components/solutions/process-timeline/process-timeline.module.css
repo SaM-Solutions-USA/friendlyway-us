@@ -1,0 +1,160 @@
+.root {
+  color: #121212;
+  font-size: 20px;
+}
+
+.intro {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  column-gap: 60px;
+  display: flex;
+  padding-bottom: 40px;
+  position: relative;
+  width: calc(50% + 37px);
+}
+
+.item:nth-child(odd) {
+  margin-left: auto;
+}
+
+.item[data-reversed] {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-left: 0;
+}
+
+.item:not(:last-child)::after {
+  background: rgb(0 0 0 / 20%);
+  content: "";
+  height: calc(100% - 74px);
+  left: 37px;
+  position: absolute;
+  top: 74px;
+  width: 2px;
+}
+
+.item[data-reversed]::after {
+  left: auto;
+  right: 37px;
+}
+
+.counter {
+  align-items: center;
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 50%;
+  display: flex;
+  flex: 0 0 74px;
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 700;
+  height: 74px;
+  justify-content: center;
+  position: relative;
+  width: 74px;
+}
+
+.content {
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .root {
+    font-size: 18px;
+  }
+
+  .intro {
+    text-align: start;
+  }
+
+  .item,
+  .item[data-reversed] {
+    column-gap: 36px;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .counter {
+    flex-basis: 66.59px;
+    font-size: 22.5px;
+    height: 66.59px;
+    width: 66.59px;
+  }
+
+  .item:not(:last-child)::after {
+    height: calc(100% - 66.59px);
+    left: 33.295px;
+    top: 66.59px;
+  }
+
+  .item[data-reversed]::after {
+    left: 33.295px;
+    right: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .root {
+    font-size: 16px;
+  }
+
+  .intro {
+    margin-bottom: 32px;
+  }
+
+  .item,
+  .item[data-reversed] {
+    column-gap: 32px;
+    padding-bottom: 32px;
+  }
+
+  .counter {
+    flex-basis: 59.19px;
+    font-size: 20px;
+    height: 59.19px;
+    width: 59.19px;
+  }
+
+  .item:not(:last-child)::after {
+    height: calc(100% - 59.19px);
+    left: 29.595px;
+    top: 59.19px;
+  }
+
+  .item[data-reversed]::after {
+    left: 29.595px;
+    right: auto;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}

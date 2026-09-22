@@ -1,5 +1,6 @@
 .root {
   color: #333;
+  overflow-x: clip;
 }
 
 .root details {

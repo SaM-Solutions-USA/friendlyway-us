@@ -1,13 +1,20 @@
 import Image from "next/image";
 
 import { Paragraph } from "@/components/shared/typography/paragraph";
-import type { ContentContactProfile } from "@/content/types";
+import type { SharedMedia } from "../media";
 
 import styles from "./contact-panel.module.css";
 
+export interface ContactPanelProfile {
+  readonly name: string;
+  readonly role: string;
+  readonly location: string;
+  readonly portrait: SharedMedia;
+}
+
 export interface ContactPanelProps {
   readonly paragraphs: readonly string[];
-  readonly profile: ContentContactProfile;
+  readonly profile: ContactPanelProfile;
 }
 
 export function ContactPanel({ paragraphs, profile }: ContactPanelProps) {

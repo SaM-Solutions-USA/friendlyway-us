@@ -1,0 +1,170 @@
+.root {
+  background: #f5f3f0;
+  padding: 60px;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.logo {
+  display: inline-block;
+  height: auto;
+  margin-bottom: 25px;
+  max-width: 100%;
+  width: auto;
+}
+
+.quote {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 15px;
+}
+
+.quote p {
+  margin: 0;
+}
+
+.author {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+}
+
+.portrait {
+  border-radius: 50%;
+  height: 70px;
+  object-fit: cover;
+  overflow: hidden;
+  width: 70px;
+}
+
+.authorCopy {
+  display: grid;
+  gap: 5px;
+  width: calc(100% - 85px);
+}
+
+.authorName,
+.authorRole {
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.authorName {
+  font-weight: 600;
+}
+
+.aside {
+  border-left: 1px solid rgb(0 0 0 / 20%);
+  display: flex;
+  flex: 0 0 350px;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 40px;
+}
+
+.metrics,
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin: 0;
+}
+
+.metric,
+.detail {
+  width: 100%;
+}
+
+.metricValue {
+  color: var(--accent-color);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.metricLabel {
+  margin: 0;
+}
+
+.detailHeading {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.detailList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.detailList li {
+  padding-left: 15px;
+  position: relative;
+}
+
+.detailList li::before {
+  content: "-";
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+@media (max-width: 991px) {
+  .root {
+    padding: 35px;
+  }
+
+  .inner {
+    flex-direction: column;
+  }
+
+  .quote {
+    font-size: 18px;
+  }
+
+  .aside {
+    border-left: 0;
+    flex-basis: auto;
+    gap: 20px;
+    padding-left: 0;
+  }
+
+  .metric,
+  .detail {
+    min-width: 225px;
+    width: calc(33.333% - 14px);
+  }
+}
+
+@media (max-width: 575px) {
+  .root {
+    padding: 24px;
+  }
+
+  .quote {
+    font-size: 16px;
+  }
+
+  .metricValue {
+    font-size: 18px;
+  }
+
+  .metric,
+  .detail {
+    width: 100%;
+  }
+}

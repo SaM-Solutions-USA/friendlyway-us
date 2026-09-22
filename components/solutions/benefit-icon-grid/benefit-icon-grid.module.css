@@ -1,0 +1,47 @@
+.root {
+  display: grid;
+  gap: 40px;
+}
+
+.intro {
+  display: grid;
+  gap: 12px;
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.item {
+  align-items: flex-start;
+  display: flex;
+  gap: 15px;
+  min-width: 0;
+}
+
+.icon {
+  flex: 0 0 50px;
+  height: 50px;
+  object-fit: contain;
+  width: 50px;
+}
+
+.label {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 475px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

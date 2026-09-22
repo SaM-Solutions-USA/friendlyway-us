@@ -11,12 +11,15 @@ export interface FaqItem {
 
 export interface FaqProps {
   readonly items: readonly FaqItem[];
+  readonly initiallyOpenIndex?: number;
 }
 
 const collapseDuration = 250;
 
-export function Faq({ items }: FaqProps) {
-  const [openItems, setOpenItems] = useState<ReadonlySet<number>>(new Set());
+export function Faq({ items, initiallyOpenIndex }: FaqProps) {
+  const [openItems, setOpenItems] = useState<ReadonlySet<number>>(
+    () => initiallyOpenIndex === undefined ? new Set() : new Set([initiallyOpenIndex]),
+  );
   const [closingItems, setClosingItems] = useState<ReadonlySet<number>>(new Set());
   const [openingItems, setOpeningItems] = useState<ReadonlySet<number>>(new Set());
 

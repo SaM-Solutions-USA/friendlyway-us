@@ -1,11 +1,13 @@
 import Image from "next/image";
 
-import type { ContentMedia } from "@/content/types";
+import type { SharedMedia } from "../media";
 
 import styles from "./logo-marquee.module.css";
 
+export type LogoMarqueeLogo = SharedMedia;
+
 export interface LogoMarqueeProps {
-  readonly logos: readonly ContentMedia[];
+  readonly logos: readonly LogoMarqueeLogo[];
   readonly mode?: "static" | "scroll";
 }
 
