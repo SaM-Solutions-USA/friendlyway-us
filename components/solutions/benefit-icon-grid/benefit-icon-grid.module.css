@@ -34,9 +34,34 @@
   margin: 0;
 }
 
+.industries .icon {
+  flex-basis: 24px;
+  height: 24px;
+  width: 24px;
+}
+
+.industries .label {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (max-width: 991px) {
+  .industries .label {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 767px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .industries .label {
+    font-size: 16px;
   }
 }
 

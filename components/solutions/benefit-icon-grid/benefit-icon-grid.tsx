@@ -17,15 +17,17 @@ export interface BenefitIconGridItem {
 
 export interface BenefitIconGridProps {
   readonly heading: string;
+  readonly headingId?: string;
   readonly description: string;
   readonly items: readonly BenefitIconGridItem[];
+  readonly variant?: "default" | "industries";
 }
 
-export function BenefitIconGrid({ heading, description, items }: BenefitIconGridProps) {
+export function BenefitIconGrid({ heading, headingId = "safety-benefits-heading", description, items, variant = "default" }: BenefitIconGridProps) {
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${variant === "industries" ? styles.industries : ""}`}>
       <div className={styles.intro}>
-        <SectionHeading as="h2" id="safety-benefits-heading">{heading}</SectionHeading>
+        <SectionHeading as="h2" id={headingId}>{heading}</SectionHeading>
         <Paragraph>{description}</Paragraph>
       </div>
       <ul className={styles.grid}>

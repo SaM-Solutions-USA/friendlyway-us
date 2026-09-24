@@ -1,0 +1,141 @@
+.root {
+  min-width: 0;
+  padding-block: 50px;
+}
+
+.heading {
+  margin-bottom: 35px;
+}
+
+.slides {
+  position: relative;
+}
+
+:global(::view-transition-new(root)) {
+  animation: none;
+}
+
+:global(::view-transition-old(root)) {
+  animation: none;
+}
+
+:global(::view-transition-group(testimonial-forward)) {
+  animation-duration: 350ms;
+  overflow: clip;
+}
+
+:global(::view-transition-group(testimonial-backward)) {
+  animation-duration: 350ms;
+  overflow: clip;
+}
+
+:global(::view-transition-old(testimonial-forward)) {
+  animation: 350ms ease-in-out both slide-out-left;
+}
+
+:global(::view-transition-new(testimonial-forward)) {
+  animation: 350ms ease-in-out both slide-in-right;
+}
+
+:global(::view-transition-old(testimonial-backward)) {
+  animation: 350ms ease-in-out both slide-out-right;
+}
+
+:global(::view-transition-new(testimonial-backward)) {
+  animation: 350ms ease-in-out both slide-in-left;
+}
+
+@keyframes slide-out-left {
+  to { transform: translateX(-100%); }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+}
+
+@keyframes slide-out-right {
+  to { transform: translateX(100%); }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); }
+}
+
+.slide[hidden] {
+  display: none;
+}
+
+.arrow {
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  color: inherit;
+  cursor: pointer;
+  font-size: 35px;
+  height: 35px;
+  line-height: 35px;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+}
+
+.arrow span {
+  display: block;
+  margin-top: -10px;
+}
+
+.arrow:hover,
+.arrow:focus-visible {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.arrow:focus-visible,
+.dot:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.previous { left: 15px; }
+.next { right: 15px; }
+
+.dots {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.dot {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  margin: 2.5px 5px;
+  padding: 12px 0;
+}
+
+.dot span {
+  background: #bfbfbf;
+  display: block;
+  height: 3px;
+  width: 30px;
+}
+
+.dot:hover span,
+.dot:focus-visible span,
+.dot[aria-current="true"] span {
+  background: #282828;
+}
+
+@media (max-width: 767px) {
+  .root { padding-block: 35px; }
+  .dots { padding-top: 32px; }
+  .dot span { height: 2.5px; width: 25px; }
+}
+
+@media (max-width: 575px) {
+  .dots { padding-top: 24px; }
+  .dot span { height: 2px; width: 20px; }
+}

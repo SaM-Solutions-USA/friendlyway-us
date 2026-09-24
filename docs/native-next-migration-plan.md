@@ -41,6 +41,8 @@ SEO ownership.
    currently reference files that are absent from the workspace.
 2. Capture the Manufacturing legacy baseline and create its route-local
    content, types, presenter, SEO helper, and feature UI before migration.
+  See `docs/solutions-for-manufacturing-migration-handoff.md` for the
+  route-specific execution plan.
 
 ## Compatibility Contract
 
@@ -610,6 +612,9 @@ Deliverables:
 Emergency Mustering is the completed representative solution landing page.
 Migrate `/solutions-for-manufacturing` next, reusing the existing solution
 component family only where its visual and semantic contract fits.
+
+The route-specific implementation plan is in
+`docs/solutions-for-manufacturing-migration-handoff.md`.
 
 Additional section variants:
 

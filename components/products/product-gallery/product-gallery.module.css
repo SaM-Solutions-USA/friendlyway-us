@@ -30,51 +30,14 @@
 
 .controls button {
   background: #fff;
-  border: 2px solid var(--accent-color);
-  border-radius: 5px;
-  cursor: pointer;
-  height: 35px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 35px;
-}
-
-.controls button::before {
-  border-bottom: 2px solid var(--accent-color);
-  border-right: 2px solid var(--accent-color);
-  content: "";
-  height: 8px;
-  left: 45%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  width: 8px;
 }
 
 .previous {
   left: 15px;
-  transform: translateY(-50%) scaleX(-1) !important;
 }
 
 .next {
   right: 15px;
-}
-
-.controls button:hover:not(:disabled),
-.controls button:focus-visible {
-  background: var(--accent-color);
-  outline: 0;
-}
-
-.controls button:hover:not(:disabled)::before,
-.controls button:focus-visible::before {
-  border-color: #fff;
-}
-
-.controls button:disabled {
-  cursor: default;
-  opacity: 0;
 }
 
 .slideSwitcher {

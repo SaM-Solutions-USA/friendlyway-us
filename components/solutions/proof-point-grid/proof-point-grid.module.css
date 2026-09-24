@@ -3,6 +3,12 @@
   gap: 40px;
 }
 
+.intro {
+  display: grid;
+  gap: 12px;
+  text-align: center;
+}
+
 .grid {
   display: grid;
   gap: 32px;
@@ -13,7 +19,8 @@
 }
 
 .item {
-  align-items: center;
+  align-content: start;
+  align-items: start;
   display: grid;
   gap: 16px;
   justify-items: center;
@@ -28,10 +35,22 @@
   width: auto;
 }
 
+.title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
 .description {
   font-size: 16px;
   line-height: 1.5;
   margin: 0;
+}
+
+.inverse :is(h2, h3, p) {
+  color: #fff;
 }
 
 @media (max-width: 767px) {
@@ -50,5 +69,10 @@
     grid-template-columns: 60px minmax(0, 1fr);
     justify-items: start;
     text-align: left;
+  }
+
+  .title,
+  .description {
+    grid-column: 2;
   }
 }

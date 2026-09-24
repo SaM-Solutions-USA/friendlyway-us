@@ -7,7 +7,7 @@ export interface CallToActionBannerProps {
     readonly label: string;
     readonly href: string;
   };
-  readonly backgroundImage: string;
+  readonly backgroundImage?: string;
 }
 
 export function CallToActionBanner({ heading, description, action, backgroundImage }: CallToActionBannerProps) {
@@ -15,7 +15,7 @@ export function CallToActionBanner({ heading, description, action, backgroundIma
     <section
       aria-labelledby="call-to-action-heading"
       className={styles.root}
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      style={backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : undefined}
     >
       <div className={styles.layout}>
         <div className={styles.copy}>

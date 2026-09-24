@@ -1,0 +1,28 @@
+.root {
+  display: grid;
+  font-size: 16px;
+  gap: 1rem;
+  line-height: 1.5;
+  padding-top: 16px;
+}
+
+.root p,
+.root ul {
+  margin: 0;
+}
+
+.root ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.root a {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+@media (max-width: 575px) {
+  .root {
+    font-size: 14px;
+  }
+}

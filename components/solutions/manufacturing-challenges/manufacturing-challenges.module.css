@@ -1,0 +1,150 @@
+.root {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.intro {
+  margin-bottom: 1.75em;
+}
+
+.grid {
+  display: grid;
+  gap: 0.3em;
+}
+
+.row {
+  display: grid;
+  gap: 0.3em;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tile {
+  background: rgba(255, 255, 255, 0.7);
+  min-width: 0;
+}
+
+.tile[data-expanded] {
+  background: #fff;
+  position: relative;
+}
+
+.tile[data-expanded]::after {
+  background: #fff;
+  bottom: -0.3em;
+  content: "";
+  height: 0.3em;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.trigger {
+  align-items: flex-start;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font: inherit;
+  gap: 2.5em;
+  height: 100%;
+  justify-content: space-between;
+  padding: 1em 2.25em 1em 1em;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.trigger:hover,
+.trigger:focus-visible {
+  background: #fff;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: -2px;
+}
+
+.trigger::after {
+  border-bottom: 2px solid var(--accent-color);
+  border-right: 2px solid var(--accent-color);
+  bottom: 1.1em;
+  content: "";
+  height: 9px;
+  position: absolute;
+  right: 0.9em;
+  transform: rotate(45deg);
+  width: 9px;
+}
+
+.trigger[aria-expanded="true"]::after {
+  transform: rotate(225deg);
+}
+
+.icon {
+  height: 3.25em;
+  max-width: 3.25em;
+  object-fit: contain;
+  object-position: left;
+  transform-origin: left center;
+  width: auto;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+@media (min-width: 576px) {
+  .grid[data-active] .name {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .tile[data-expanded] .name { visibility: hidden; }
+  .tile[data-expanded] .icon { transform: scale(1.25); }
+}
+
+.panel {
+  background: #fff;
+  grid-column: 1 / -1;
+  padding: 1.25em 1em;
+}
+
+.panel[hidden] { display: none; }
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 0 0 0.75em;
+}
+
+.description {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+@media (max-width: 1199px) {
+  .root { font-size: 18px; }
+}
+
+@media (max-width: 991px) {
+  .row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 575px) {
+  .root { font-size: 16px; }
+  .row { grid-template-columns: minmax(0, 1fr); }
+  .trigger { align-items: center; flex-direction: row; gap: 1em; justify-content: flex-start; padding-right: 3.5em; }
+  .trigger::after { bottom: auto; right: 1.5em; top: 1.5em; }
+  .icon { height: 2.5em; max-width: 2.5em; }
+  .name { font-size: 16px; }
+  .panel { border-top: 1px solid #dbe0e0; }
+  .panelTitle { display: none; }
+}

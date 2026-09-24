@@ -25,9 +25,13 @@ export interface TestimonialSpotlightProps {
     readonly heading: string;
     readonly items: readonly string[];
   }[];
+  readonly action?: {
+    readonly label: string;
+    readonly href: string;
+  };
 }
 
-export function TestimonialSpotlight({ logo, quote, author, metrics, details }: TestimonialSpotlightProps) {
+export function TestimonialSpotlight({ logo, quote, author, metrics, details, action }: TestimonialSpotlightProps) {
   return (
     <section aria-label={`Testimonial from ${author.name}`} className={styles.root}>
       <div className={styles.inner}>
@@ -61,6 +65,7 @@ export function TestimonialSpotlight({ logo, quote, author, metrics, details }: 
               </div>
             ))}
           </div>
+          {action ? <a className={styles.action} href={action.href}>{action.label}</a> : null}
         </aside>
       </div>
     </section>

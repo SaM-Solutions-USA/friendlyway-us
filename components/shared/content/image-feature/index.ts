@@ -1,0 +1,1 @@
+export { ImageFeature, type ImageFeatureProps } from "./image-feature";

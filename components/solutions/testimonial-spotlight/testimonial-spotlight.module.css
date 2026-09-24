@@ -1,5 +1,6 @@
 .root {
   background: #f5f3f0;
+  line-height: 1.8;
   padding: 60px;
 }
 
@@ -24,7 +25,6 @@
 
 .quote {
   font-size: 16px;
-  line-height: 1.5;
   margin: 0 0 15px;
 }
 
@@ -101,7 +101,6 @@
   font-family: var(--font-display);
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.5;
   margin: 0;
 }
 
@@ -121,6 +120,26 @@
   left: 0;
   position: absolute;
   top: 0;
+}
+
+.action {
+  align-self: flex-start;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  color: var(--accent-color);
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-top: 15px;
+  padding: 12.5px 25px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.action:hover,
+.action:focus-visible {
+  background: var(--accent-color);
+  color: #fff;
 }
 
 @media (max-width: 991px) {
@@ -151,10 +170,6 @@
 }
 
 @media (max-width: 575px) {
-  .root {
-    padding: 24px;
-  }
-
   .quote {
     font-size: 16px;
   }

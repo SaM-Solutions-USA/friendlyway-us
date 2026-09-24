@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import type { ProductMedia } from "@/components/products/types";
+import { CarouselArrow } from "@/components/shared/content/carousel-arrow";
 
 import styles from "./product-gallery.module.css";
 
@@ -20,8 +21,8 @@ export function ProductGallery({ media }: { readonly media: readonly ProductMedi
       <div className={styles.stage}>
         <Image className={styles.image} key={activeMedia.src} src={activeMedia.src} width={activeMedia.width} height={activeMedia.height} alt={activeMedia.alt} />
         <div className={styles.controls}>
-          <button aria-label="Previous product image" className={styles.previous} disabled={activeIndex === 0} onClick={() => setActiveIndex(activeIndex - 1)} type="button" />
-          <button aria-label="Next product image" className={styles.next} disabled={activeIndex === media.length - 1} onClick={() => setActiveIndex(activeIndex + 1)} type="button" />
+          <CarouselArrow aria-label="Previous product image" className={styles.previous} direction="previous" disabled={activeIndex === 0} onClick={() => setActiveIndex(activeIndex - 1)} />
+          <CarouselArrow aria-label="Next product image" className={styles.next} direction="next" disabled={activeIndex === media.length - 1} onClick={() => setActiveIndex(activeIndex + 1)} />
         </div>
       </div>
       <div className={styles.slideSwitcher} aria-label="Choose product image" role="group">

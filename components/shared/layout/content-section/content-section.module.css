@@ -14,6 +14,10 @@
   background: #f5f3f0;
 }
 
+.dark {
+  background: #151d30;
+}
+
 .inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

@@ -1,0 +1,45 @@
+.arrow {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  color: var(--accent-color);
+  cursor: pointer;
+  height: 35px;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+}
+
+.arrow::before {
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  content: "";
+  height: 8px;
+  left: 45%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 8px;
+}
+
+.previous {
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.arrow:hover:not(:disabled),
+.arrow:focus-visible {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.arrow:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.arrow:disabled {
+  cursor: default;
+  opacity: 0;
+}

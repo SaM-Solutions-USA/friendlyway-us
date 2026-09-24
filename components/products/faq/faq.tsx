@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 
+import { RichContent, type RichContentBlock } from "@/components/shared/content/rich-content/rich-content";
+
 import styles from "./faq.module.css";
 
 export interface FaqItem {
   readonly question: string;
   readonly answer: string;
+  readonly content?: readonly RichContentBlock[];
 }
 
 export interface FaqProps {
@@ -59,7 +62,7 @@ export function Faq({ items, initiallyOpenIndex }: FaqProps) {
       {items.map((item, index) => (
         <details data-closing={closingItems.has(index) || undefined} data-opening={openingItems.has(index) || undefined} key={item.question} open={openItems.has(index)}>
           <summary onClick={(event) => { event.preventDefault(); toggleItem(index); }}>{item.question}</summary>
-          <div className={styles.answer}><p>{item.answer}</p></div>
+          <div className={styles.answer}>{item.content ? <RichContent blocks={item.content} /> : <p>{item.answer}</p>}</div>
         </details>
       ))}
     </div>
