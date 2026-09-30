@@ -10,6 +10,8 @@ import { ContentSection } from "@/components/shared/layout/content-section";
 import { TwoColumnSplit } from "@/components/shared/layout/two-column-split";
 import { SectionHeading } from "@/components/shared/typography/section-heading";
 import { CallToActionBanner } from "@/components/solutions/call-to-action-banner";
+import { CallToActionLink } from "@/components/solutions/call-to-action-banner";
+import { RichContent } from "@/components/shared/content/rich-content/rich-content";
 import { BenefitIconGrid } from "@/components/solutions/benefit-icon-grid";
 import { CustomerStoryGrid } from "@/components/solutions/customer-story-grid";
 import { Faq } from "@/components/products/faq/faq";
@@ -22,7 +24,7 @@ import { TestimonialCarousel } from "@/components/solutions/testimonial-spotligh
 import { TransformationJourney } from "@/components/solutions/transformation-journey";
 
 import { manufacturingContent } from "./content";
-import { createChallengesProps, createClientLogoProps, createContactFormProps, createContactPanelProps, createCustomerStoriesProps, createDemoProps, createFaqProps, createHardwareOptionsProps, createIndustriesProps, createManufacturingHeroProps, createManufacturingSolutionGridProps, createRealLifeGalleryProps, createStatisticsProps, createTestimonialCarouselProps, createTransformationJourneyProps, createWhyFriendlywayProps } from "./presenter";
+import { createChallengesProps, createClientLogoProps, createContactFormProps, createContactPanelProps, createCustomerStoriesProps, createFaqProps, createHardwareOptionsProps, createIndustriesProps, createManufacturingHeroProps, createManufacturingSolutionGridProps, createRealLifeGalleryProps, createStatisticsProps, createTestimonialCarouselProps, createTransformationJourneyProps, createWhyFriendlywayProps } from "./presenter";
 import { getManufacturingMetadata, getManufacturingStructuredData } from "./seo";
 
 export const metadata: Metadata = getManufacturingMetadata(manufacturingContent.seo);
@@ -47,7 +49,18 @@ export default function ManufacturingRoute() {
         <ImageFeature {...createHardwareOptionsProps(manufacturingContent)} />
       </ContentSection>
       <ContentSection as="div" paddingBlock="md">
-        <CallToActionBanner {...createDemoProps(manufacturingContent)} />
+        <CallToActionBanner
+          labelledBy="call-to-action-heading"
+          text={
+            <>
+              <h2 id="call-to-action-heading">{manufacturingContent.demo.heading}</h2>
+              <RichContent blocks={[{ type: "paragraph", content: [manufacturingContent.demo.description] }]} variant="plain" />
+            </>
+          }
+          cta={
+            <CallToActionLink href={manufacturingContent.demo.action.href} label={manufacturingContent.demo.action.label} />
+          }
+        />
       </ContentSection>
       <ContentSection labelledBy="manufacturing-challenges-heading" paddingBlock="lg" tone="sand">
         <ManufacturingChallenges {...createChallengesProps(manufacturingContent)} />

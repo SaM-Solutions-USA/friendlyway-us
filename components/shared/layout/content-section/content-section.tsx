@@ -5,7 +5,7 @@ import styles from "./content-section.module.css";
 export type ContentSectionElement = "section" | "div" | "aside";
 export type ContentSectionWidth = "content" | "full";
 export type ContentSectionSpacing = "none" | "xs" | "sm" | "md" | "lg" | "xl";
-export type ContentSectionTone = "default" | "muted" | "sand" | "dark";
+export type ContentSectionTone = "default" | "muted" | "sand" | "dark" | "warm";
 
 export interface ContentSectionProps {
   readonly as?: ContentSectionElement;

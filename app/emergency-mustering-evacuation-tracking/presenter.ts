@@ -1,6 +1,5 @@
 import type { BenefitIconGridProps } from "@/components/solutions/benefit-icon-grid";
 import type { AlternatingFeatureListProps } from "@/components/solutions/alternating-feature-list";
-import type { CallToActionBannerProps } from "@/components/solutions/call-to-action-banner";
 import type { ProcessTimelineProps } from "@/components/solutions/process-timeline";
 import type { ProofPointGridProps } from "@/components/solutions/proof-point-grid";
 import type { SolutionCardGridProps } from "@/components/solutions/solution-card-grid";
@@ -32,10 +31,6 @@ export function createSolutionFeatureProps(content: EmergencyMusteringContent): 
 
 export function createSupportingSolutionProps(content: EmergencyMusteringContent): SolutionCardGridProps {
   return content.supportingSolutions;
-}
-
-export function createCallToActionProps(content: EmergencyMusteringContent): CallToActionBannerProps {
-  return content.callToAction;
 }
 
 export function createProcessTimelineProps(content: EmergencyMusteringContent): ProcessTimelineProps {

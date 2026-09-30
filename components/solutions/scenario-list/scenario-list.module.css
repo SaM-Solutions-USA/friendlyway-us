@@ -1,0 +1,139 @@
+.root {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.intro {
+  margin-bottom: 1.25em;
+}
+
+.intro h2 {
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+}
+
+.rows {
+  display: grid;
+}
+
+.row {
+  align-items: flex-start;
+  border-bottom: 2px solid var(--accent-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em 3.25em;
+  padding-block: 1.5em;
+}
+
+.row:first-child {
+  border-top: 2px solid var(--accent-color);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 0.8em;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+  width: 150px;
+}
+
+.staticTitle {
+  display: block;
+}
+
+.trigger {
+  display: none;
+}
+
+.features {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature {
+  width: calc(25% - 1.5em * 3 / 4);
+}
+
+.iconView {
+  display: block;
+  height: 2em;
+}
+
+.iconView img {
+  height: 100%;
+  min-width: 2em;
+  object-fit: contain;
+  object-position: left top;
+  width: auto;
+}
+
+.featureLabel {
+  font-size: 0.8em;
+  margin: 0.75em 0 0;
+}
+
+@media (max-width: 991px) {
+  .title {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .staticTitle {
+    display: none;
+  }
+
+  .trigger {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    padding: 1em 2.5em 1em 0;
+    position: relative;
+    text-align: left;
+    width: 100%;
+  }
+
+  .trigger::after {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEwIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik05IDEuNjI1NDlMNSA1LjYyNTQ5TDEgMS42MjU0OSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLW9wYWNpdHk9IjAuOSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==");
+    background-size: contain;
+    content: "";
+    height: 0.5em;
+    position: absolute;
+    right: 1em;
+    top: 1.5em;
+    width: 0.625em;
+  }
+
+  .trigger[aria-expanded="true"]::after {
+    transform: scaleY(-1);
+  }
+
+  .trigger:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
+  }
+
+  .features:not([data-expanded="true"]) {
+    display: none;
+  }
+
+  .feature {
+    width: calc(50% - 1.5em / 2);
+  }
+}
+
+@media (max-width: 575px) {
+  .root {
+    font-size: 17.5px;
+  }
+}

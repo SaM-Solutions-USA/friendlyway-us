@@ -150,10 +150,10 @@ export const emergencyMusteringContent = {
   whyFriendlyway: {
     heading: "Why friendlyway?",
     items: [
-      { icon: { src: "/wp-content/uploads/25-years-icon.svg", width: 64, height: 64, alt: "25+ years icon" }, description: "Over 25 years of experience in self-service and safety solutions" },
-      { icon: { src: "/wp-content/uploads/Group-1371.svg", width: 76, height: 44, alt: "" }, description: "Seamless integration into the friendlyway ecosystem" },
-      { icon: { src: "/wp-content/uploads/Cloud-icon1.svg", width: 64, height: 64, alt: "" }, description: "Flexible deployment options: SaaS or on-premises" },
-      { icon: { src: "/wp-content/uploads/Guarantee-icon.svg", width: 64, height: 64, alt: "" }, description: "Dedicated regional support teams in the US and EU" },
+      { icon: { src: "/wp-content/uploads/25-years-icon.svg", width: 64, height: 64, alt: "25+ years icon" }, description: [{ type: "paragraph", content: ["Over 25 years of experience in self-service and safety solutions"] }] },
+      { icon: { src: "/wp-content/uploads/Group-1371.svg", width: 76, height: 44, alt: "" }, description: [{ type: "paragraph", content: ["Seamless integration into the friendlyway ecosystem"] }] },
+      { icon: { src: "/wp-content/uploads/Cloud-icon1.svg", width: 64, height: 64, alt: "" }, description: [{ type: "paragraph", content: ["Flexible deployment options: SaaS or on-premises"] }] },
+      { icon: { src: "/wp-content/uploads/Guarantee-icon.svg", width: 64, height: 64, alt: "" }, description: [{ type: "paragraph", content: ["Dedicated regional support teams in the US and EU"] }] },
     ],
   },
   contact: {

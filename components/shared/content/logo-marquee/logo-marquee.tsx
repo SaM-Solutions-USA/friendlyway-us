@@ -9,9 +9,10 @@ export type LogoMarqueeLogo = SharedMedia;
 export interface LogoMarqueeProps {
   readonly logos: readonly LogoMarqueeLogo[];
   readonly mode?: "static" | "scroll";
+  readonly heading?: { readonly text: string; readonly id?: string };
 }
 
-export function LogoMarquee({ logos, mode = "static" }: LogoMarqueeProps) {
+export function LogoMarquee({ logos, mode = "static", heading }: LogoMarqueeProps) {
   const renderLogos = (decorative = false) => logos.map((logo) => (
     <li className={styles.item} key={logo.src}>
       <Image
@@ -26,6 +27,7 @@ export function LogoMarquee({ logos, mode = "static" }: LogoMarqueeProps) {
 
   return (
     <div className={styles.root} data-mode={mode}>
+      {heading ? <h2 id={heading.id} className={styles.heading}>{heading.text}</h2> : null}
       {mode === "scroll" ? (
         <div className={styles.viewport} tabIndex={0} aria-label="Client logos">
           <div className={styles.track}>

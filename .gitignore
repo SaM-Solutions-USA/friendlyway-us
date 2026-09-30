@@ -22,3 +22,6 @@ yarn-error.log*
 .playwright-mcp
 artifacts/**
 docs/**
+!docs/homepage-migration-handoff.md
+!docs/visitor-management-solution-migration-handoff.md
+!docs/case-studies-migration-handoff.md

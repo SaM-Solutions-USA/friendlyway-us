@@ -8,41 +8,53 @@ pages. Native routes take precedence over the catch-all legacy route handler.
 
 ## Current Baseline
 
-- `app/route.ts` serves the static legacy homepage.
+- `app/page.tsx` serves an empty native homepage with the shared chrome;
+  `legacy/index.html` remains the source for its pending content migration.
 - `app/[...slug]/route.ts` serves all other matching static legacy documents.
 - `lib/resolve-legacy-page.ts` safely resolves documents only below `legacy/`.
 - `npm run build` passed on 2026-09-22.
-- Native App Router pages are live for About Us, Counter 22, Emergency
-  Mustering, and Pricing.
+- Native App Router pages exist for About Us, Counter 22, Emergency
+  Mustering, Pricing, and Manufacturing.
 - Local fonts and WordPress browser assets are already available under `public/`.
 
 ## Migration Status
 
-Completed native routes:
+Native route files present:
 
 - `/about-us/`
 - `/products/counter-22`
 - `/emergency-mustering-evacuation-tracking`
 - `/pricing`
+- `/solutions-for-manufacturing`
 
-The next route is `/solutions-for-manufacturing`. It is the remaining full
-solution landing page and can reuse the established shell, contact/form, FAQ,
-logo-strip, and `components/solutions/` patterns. Migrate the homepage only
-after Manufacturing because it remains the larger integration composition.
+The next content migration is `/`. Its native route is scaffolded with the
+shared chrome, while `legacy/index.html` remains the content and parity
+reference. The homepage is the final full-export integration composition.
 
 `/visitor-management-solution/` and `/case-studies/` remain blocked until an
 approved source for their redirect-only exports supplies content, assets, and
 SEO ownership.
+
+For source review, run `./scripts/capture-regional-pages.ps1` in PowerShell.
+It captures both live `.com` documents, same-site resources, static previews,
+and hash manifests under the ignored `artifacts/live-source/` directory. The
+original redirect exports remain unchanged; the captured content and `.us`
+canonical/link decisions still need approval before native route cutover.
+Route-specific implementation and acceptance criteria are in
+`docs/visitor-management-solution-migration-handoff.md` and
+`docs/case-studies-migration-handoff.md`.
 
 ### Active Closeout Items
 
 1. Repair or remove stale package scripts before using them as migration
    validation: `test:content`, `test:renderer`, and `validate:content`
    currently reference files that are absent from the workspace.
-2. Capture the Manufacturing legacy baseline and create its route-local
-   content, types, presenter, SEO helper, and feature UI before migration.
-  See `docs/solutions-for-manufacturing-migration-handoff.md` for the
-  route-specific execution plan.
+2. Close out Manufacturing against its route-specific acceptance criteria in
+  `docs/solutions-for-manufacturing-migration-handoff.md` before treating its
+  shared components as proven homepage dependencies.
+3. Capture the homepage baseline and resolve its tab-slider, carousel, form,
+  and SEO decisions before populating the native root page. See
+  `docs/homepage-migration-handoff.md` for the route-specific plan.
 
 ## Compatibility Contract
 
@@ -59,11 +71,11 @@ SEO ownership.
 
 | Route | Current state | Scope | Migration family |
 | --- | --- | --- | --- |
-| `/` | Legacy compatibility handler; full export: 10 headings, 94 images | High | Homepage composition |
+| `/` | Native shell-only scaffold; legacy export: 10 headings, 94 images | High | Homepage composition |
 | `/visitor-management-solution/` | Immediate redirect to `https://www.friendlyway.com/visitor-management-solution/` | Blocked on source content | Solution landing page |
 | `/emergency-mustering-evacuation-tracking` | Native | High | Solution landing page |
 | `/products/counter-22` | Native | Medium-high | Product detail |
-| `/solutions-for-manufacturing` | Legacy export: 17 headings, 85 images, FAQ, slider/comparison content; next | High | Solution landing page |
+| `/solutions-for-manufacturing` | Native route files present; parity closeout pending | High | Solution landing page |
 | `/pricing` | Native | High | Dedicated pricing page |
 | `/case-studies/` | Immediate redirect to `https://www.friendlyway.com/case-studies/` | Blocked on source content | Case-study archive |
 | `/about-us/` | Native | Medium | Marketing page |
@@ -610,8 +622,8 @@ Deliverables:
 ### Phase 4: Solution Landing Family
 
 Emergency Mustering is the completed representative solution landing page.
-Migrate `/solutions-for-manufacturing` next, reusing the existing solution
-component family only where its visual and semantic contract fits.
+Manufacturing has native route files; close out its parity checks before
+relying on its components for the homepage.
 
 The route-specific implementation plan is in
 `docs/solutions-for-manufacturing-migration-handoff.md`.
@@ -635,9 +647,11 @@ Deliverables:
 
 ### Phase 6: Homepage
 
-Migrate `/` after Manufacturing and the shared blocks exist. Compose the page
-from typed section data instead of reproducing WordPress markup. Its large
-image/link count keeps it as the final full-export integration page.
+Migrate the content of `/` after Manufacturing closeout. The native route now
+renders shared chrome around an empty page; non-root legacy fallback routes
+remain intact. The route-specific inventory, implementation sequence,
+decisions, and acceptance criteria are in
+`docs/homepage-migration-handoff.md`.
 
 ### Phase 7: Redirect-Only Routes
 

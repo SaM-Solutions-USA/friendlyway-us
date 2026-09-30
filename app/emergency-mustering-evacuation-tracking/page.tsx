@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AlternatingFeatureList } from "@/components/solutions/alternating-feature-list";
 import { BenefitIconGrid } from "@/components/solutions/benefit-icon-grid";
 import { CallToActionBanner } from "@/components/solutions/call-to-action-banner";
+import { CallToActionLink } from "@/components/solutions/call-to-action-banner/call-to-action-link";
 import { ProcessTimeline } from "@/components/solutions/process-timeline";
 import { ProofPointGrid } from "@/components/solutions/proof-point-grid";
 import { SolutionCardGrid } from "@/components/solutions/solution-card-grid";
@@ -10,6 +11,7 @@ import { SolutionHero } from "@/components/solutions/solution-hero";
 import { TestimonialSpotlight } from "@/components/solutions/testimonial-spotlight";
 import { UseCaseGrid } from "@/components/solutions/use-case-grid";
 import { ContactPanel } from "@/components/shared/content/contact-panel";
+import { RichContent } from "@/components/shared/content/rich-content/rich-content";
 import { LogoMarquee } from "@/components/shared/content/logo-marquee";
 import { StructuredData } from "@/components/shared/content/structured-data";
 import { HubSpotForm } from "@/components/shared/forms/hubspot-form";
@@ -18,7 +20,7 @@ import { TwoColumnSplit } from "@/components/shared/layout/two-column-split";
 import { SectionHeading } from "@/components/shared/typography/section-heading";
 import { Faq } from "@/components/products/faq/faq";
 import { emergencyMusteringContent } from "./content";
-import { createCallToActionProps, createClientLogoProps, createContactFormProps, createContactPanelProps, createEmergencyMusteringHeroProps, createFaqProps, createIntegrationProps, createProcessTimelineProps, createRealWorldCapabilityProps, createSafetyBenefitProps, createSolutionFeatureProps, createSupportingSolutionProps, createTestimonialProps, createUseCaseProps, createWhyFriendlywayProps } from "./presenter";
+import { createClientLogoProps, createContactFormProps, createContactPanelProps, createEmergencyMusteringHeroProps, createFaqProps, createIntegrationProps, createProcessTimelineProps, createRealWorldCapabilityProps, createSafetyBenefitProps, createSolutionFeatureProps, createSupportingSolutionProps, createTestimonialProps, createUseCaseProps, createWhyFriendlywayProps } from "./presenter";
 import { getEmergencyMusteringMetadata, getEmergencyMusteringStructuredData } from "./seo";
 
 export const metadata: Metadata = getEmergencyMusteringMetadata(emergencyMusteringContent.seo);
@@ -40,7 +42,17 @@ export default function EmergencyMusteringRoute() {
         <SolutionCardGrid {...createSupportingSolutionProps(emergencyMusteringContent)} />
       </ContentSection>
       <ContentSection as="div" paddingBlock="md">
-        <CallToActionBanner {...createCallToActionProps(emergencyMusteringContent)} />
+        <CallToActionBanner
+          backgroundImage={emergencyMusteringContent.callToAction.backgroundImage}
+          cta={<CallToActionLink {...emergencyMusteringContent.callToAction.action} />}
+          labelledBy="call-to-action-heading"
+          text={
+            <>
+              <h2 id="call-to-action-heading">{emergencyMusteringContent.callToAction.heading}</h2>
+              <RichContent blocks={[{ type: "paragraph", content: [emergencyMusteringContent.callToAction.description] }]} variant="plain" />
+            </>
+          }
+        />
       </ContentSection>
       <ContentSection paddingBlock="lg" tone="sand">
         <ProcessTimeline {...createProcessTimelineProps(emergencyMusteringContent)} />

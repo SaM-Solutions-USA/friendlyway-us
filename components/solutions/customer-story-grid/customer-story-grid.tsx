@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 
 import { SectionHeading } from "@/components/shared/typography/section-heading";
@@ -6,6 +7,9 @@ import styles from "./customer-story-grid.module.css";
 
 export interface CustomerStoryGridProps {
   readonly heading: string;
+  readonly description?: string;
+  readonly controls?: ReactNode;
+  readonly filtered?: boolean;
   readonly stories: readonly {
     readonly title: string;
     readonly image: {
@@ -18,13 +22,15 @@ export interface CustomerStoryGridProps {
   }[];
 }
 
-export function CustomerStoryGrid({ heading, stories }: CustomerStoryGridProps) {
+export function CustomerStoryGrid({ heading, description, controls, filtered, stories }: CustomerStoryGridProps) {
   const headingId = "customer-story-grid-heading";
 
   return (
     <div className={styles.root}>
       <SectionHeading as="h2" id={headingId}>{heading}</SectionHeading>
-      <ul aria-labelledby={headingId} className={styles.grid}>
+      {description ? <p className={styles.description}>{description}</p> : null}
+      {controls}
+      <ul aria-labelledby={headingId} className={`${styles.grid} ${filtered ? styles.filteredGrid : ""}`}>
         {stories.map((story) => (
           <li className={styles.item} key={story.title}>
             {story.href ? (

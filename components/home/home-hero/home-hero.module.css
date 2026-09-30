@@ -1,0 +1,143 @@
+/* Ported from public/wp-content/themes/friendlyway/acf/block-layouts/promo/style-1/style.css
+   and the .button_* rules in public/wp-content/themes/friendlyway/style.css. */
+
+.root {
+  color: #fff;
+  line-height: 1.5;
+  padding-block: 64px;
+  position: relative;
+  text-align: center;
+}
+
+.media {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.media::after {
+  background-color: rgb(0 0 0 / 0.55);
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.inner {
+  align-items: center;
+  column-gap: 0;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  max-width: 1168px;
+  padding-inline: 16px;
+  row-gap: 24px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  max-width: 1064px;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 740px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.action {
+  align-items: center;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  column-gap: 8px;
+  cursor: pointer;
+  display: flex;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.2;
+  min-width: 170px;
+  padding: 16px 24px;
+  text-decoration: none;
+}
+
+.actionPrimary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+
+.actionPrimary:hover,
+.actionPrimary:focus-visible {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+.actionSecondary {
+  background-color: #fff;
+  color: var(--accent-color);
+}
+
+@media (min-width: 1200px) {
+  .root {
+    padding-block: 120px;
+  }
+
+  .heading {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 576px) {
+  .root {
+    padding-block: 96px;
+  }
+
+  .action {
+    font-size: 14px;
+  }
+
+  .heading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 575px) {
+  .root {
+    padding-block: 64px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 475px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+}

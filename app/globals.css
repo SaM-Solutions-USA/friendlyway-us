@@ -75,6 +75,13 @@
   --accent-color: #f96240;
   --font-body: "Open Sans", sans-serif;
   --font-display: Poppins, sans-serif;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
 }
 
 /* Minimal bootstrap styles. No external fonts or assets. */

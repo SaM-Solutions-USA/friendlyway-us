@@ -1,6 +1,14 @@
 .root {
 }
 
+.heading {
+  color: #6c6c6c;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 .list {
   align-items: center;
   display: grid;

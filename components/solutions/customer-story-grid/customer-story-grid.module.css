@@ -3,6 +3,40 @@
   gap: 35px;
 }
 
+.description {
+  font-size: 18px;
+  margin: -19px 0 0;
+}
+
+.filters {
+  display: flex;
+  gap: 32px;
+  margin-top: 5px;
+  overflow-x: auto;
+}
+
+.filter {
+  background: none;
+  border: 0;
+  border-bottom: 4px solid transparent;
+  color: inherit;
+  cursor: pointer;
+  flex: none;
+  font: 600 18px/1.33 var(--font-display);
+  opacity: 0.7;
+  padding: 0.65em 0;
+}
+
+.filter[aria-pressed="true"] {
+  border-bottom-color: var(--accent-color);
+  opacity: 1;
+}
+
+.filter:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 .grid {
   display: grid;
   gap: 32px;
@@ -50,14 +84,39 @@ a.story:focus-visible {
   margin: 0;
 }
 
+a.story .title {
+  padding-right: 24px;
+  position: relative;
+}
+
+a.story .title::after {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xLjk5OTk1IDcuNTI3OGUtMDVMMTEgNy41MDI1MWUtMDVDMTEuNTUyMiA3LjQ2ODc5ZS0wNSAxMiAwLjQ0Nzc5IDEyIDEuMDAwMDhWMTAuMDAwMUMxMiAxMC41NTI0IDExLjU1MjIgMTEuMDAwMSAxMSAxMS4wMDAxQzEwLjQ0NzcgMTEuMDAwMSA5Ljk5OTk1IDEwLjU1MjQgOS45OTk5NSAxMC4wMDAxTDkuOTk5OTUgMy40MTQyOUwxLjcwNzA2IDExLjcwNzJMMC4yOTI4NDcgMTAuMjkzTDguNTg1NzQgMi4wMDAwN0wxLjk5OTk1IDIuMDAwMDhDMS40NDc2NyAyLjAwMDA4IDAuOTk5OTU0IDEuNTUyMzYgMC45OTk5NTQgMS4wMDAwN0MwLjk5OTk1NCAwLjQ0Nzc5IDEuNDQ3NjcgNy40OTQwOGUtMDUgMS45OTk5NSA3LjUyNzhlLTA1WiIgZmlsbD0iI2Y5NjI0MCIvPgo8L3N2Zz4K);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  content: "";
+  height: 1em;
+  position: absolute;
+  right: 0;
+  top: 0.4em;
+  width: 1em;
+}
+
 @media (max-width: 991px) {
-  .grid {
+  .grid:not(.filteredGrid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .filteredGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 575px) {
-  .grid {
+  .grid,
+  .grid:not(.filteredGrid) {
     grid-template-columns: minmax(0, 1fr);
   }
 }

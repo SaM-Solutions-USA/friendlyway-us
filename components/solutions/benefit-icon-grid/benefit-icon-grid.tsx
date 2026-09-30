@@ -18,7 +18,7 @@ export interface BenefitIconGridItem {
 export interface BenefitIconGridProps {
   readonly heading: string;
   readonly headingId?: string;
-  readonly description: string;
+  readonly description?: string;
   readonly items: readonly BenefitIconGridItem[];
   readonly variant?: "default" | "industries";
 }
@@ -28,7 +28,7 @@ export function BenefitIconGrid({ heading, headingId = "safety-benefits-heading"
     <div className={`${styles.root} ${variant === "industries" ? styles.industries : ""}`}>
       <div className={styles.intro}>
         <SectionHeading as="h2" id={headingId}>{heading}</SectionHeading>
-        <Paragraph>{description}</Paragraph>
+        {description ? <Paragraph>{description}</Paragraph> : null}
       </div>
       <ul className={styles.grid}>
         {items.map((item) => (

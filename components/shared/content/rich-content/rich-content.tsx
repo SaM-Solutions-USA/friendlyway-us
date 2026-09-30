@@ -1,10 +1,9 @@
 import styles from "./rich-content.module.css";
 
-export type RichContentInline = string | {
-  readonly type: "link";
-  readonly label: string;
-  readonly href: string;
-};
+export type RichContentInline = string
+  | { readonly type: "lineBreak" }
+  | { readonly type: "link"; readonly label: string; readonly href: string }
+  | { readonly type: "strong"; readonly text: string };
 
 export type RichContentBlock =
   | {
@@ -18,6 +17,7 @@ export type RichContentBlock =
 
 export interface RichContentProps {
   readonly blocks: readonly RichContentBlock[];
+  readonly variant?: "default" | "plain";
 }
 
 function renderInlineContent(content: readonly RichContentInline[], blockIndex: number, itemIndex?: number) {
@@ -28,13 +28,21 @@ function renderInlineContent(content: readonly RichContentInline[], blockIndex: 
       return <span key={key}>{inline}</span>;
     }
 
+    if (inline.type === "lineBreak") {
+      return <br key={key} />;
+    }
+
+    if (inline.type === "strong") {
+      return <strong key={key}>{inline.text}</strong>;
+    }
+
     return <a href={inline.href} key={key}>{inline.label}</a>;
   });
 }
 
-export function RichContent({ blocks }: RichContentProps) {
+export function RichContent({ blocks, variant = "default" }: RichContentProps) {
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${variant === "plain" ? styles.plain : ""}`}>
       {blocks.map((block, blockIndex) => {
         if (block.type === "paragraph") {
           return <p key={blockIndex}>{renderInlineContent(block.content, blockIndex)}</p>;

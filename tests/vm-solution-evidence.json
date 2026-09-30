@@ -1,0 +1,37 @@
+{
+  "heading_count": 1,
+  "grid_section_li_count": 11,
+  "rq_idx": 94291,
+  "ph_idx": 94859,
+  "cu_idx": 100306,
+  "order_valid": true,
+  "total_images_in_grid_section": 11,
+  "wp_upload_images": 11,
+  "local_public_images": 0,
+  "all_grid_image_urls": [
+    "/wp-content/uploads/workflow.svg",
+    "/wp-content/uploads/deploy.svg",
+    "/wp-content/uploads/cloud-type2.svg",
+    "/wp-content/uploads/visitor-management-turnstile.svg",
+    "/wp-content/uploads/visitor.svg",
+    "/wp-content/uploads/quick-access.svg",
+    "/wp-content/uploads/alarm.svg",
+    "/wp-content/uploads/icon-integration.svg",
+    "/wp-content/uploads/badge.svg",
+    "/wp-content/uploads/language-choice.svg",
+    "/wp-content/uploads/person-with-disability.svg"
+  ],
+  "wp_upload_image_urls": [
+    "/wp-content/uploads/workflow.svg",
+    "/wp-content/uploads/deploy.svg",
+    "/wp-content/uploads/cloud-type2.svg",
+    "/wp-content/uploads/visitor-management-turnstile.svg",
+    "/wp-content/uploads/visitor.svg",
+    "/wp-content/uploads/quick-access.svg",
+    "/wp-content/uploads/alarm.svg",
+    "/wp-content/uploads/icon-integration.svg",
+    "/wp-content/uploads/badge.svg",
+    "/wp-content/uploads/language-choice.svg",
+    "/wp-content/uploads/person-with-disability.svg"
+  ]
+}

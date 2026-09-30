@@ -1,3 +1,5 @@
+import type { ProofPointGridProps } from "@/components/solutions/proof-point-grid/proof-point-grid";
+
 export interface EmergencyMusteringMedia {
   readonly src: string;
   readonly srcSet?: string;
@@ -115,13 +117,7 @@ export interface EmergencyMusteringContent {
       readonly href?: string;
     }[];
   };
-  readonly whyFriendlyway: {
-    readonly heading: string;
-    readonly items: readonly {
-      readonly icon: EmergencyMusteringMedia;
-      readonly description: string;
-    }[];
-  };
+  readonly whyFriendlyway: ProofPointGridProps;
   readonly contact: {
     readonly heading: string;
     readonly paragraphs: readonly string[];

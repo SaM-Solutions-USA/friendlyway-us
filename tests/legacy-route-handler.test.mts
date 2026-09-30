@@ -2,16 +2,11 @@
 // npm run test:legacy-route
 //
 // These import route handlers directly and invoke GET/HEAD with real Request
-// objects. Tests cover both the root `/` handler (`app/route.ts`) and the
-// non-root catch-all handler (`app/[...slug]/route.ts`).
+// objects. Tests cover the non-root catch-all handler
+// (`app/[...slug]/route.ts`); `/` is now a native page.
 
 import assert from "node:assert/strict";
 import test from "node:test";
-
-import {
-  GET as ROOT_GET,
-  HEAD as ROOT_HEAD,
-} from "../app/route.ts";
 
 import {
   GET as SLUG_GET,
@@ -21,27 +16,6 @@ import {
 function requestFor(pathname: string): Request {
   return new Request(`http://localhost:3000${pathname}`);
 }
-
-test("root route handler — GET `/`", async () => {
-  const response = await ROOT_GET();
-  assert.equal(response.status, 200);
-  assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
-
-  const body = await response.text();
-  assert.match(body, /<!DOCTYPE html>/i);
-  assert.match(body, /<html[\s>]/i);
-  assert.match(body, /<\/html>\s*$/i);
-  assert.match(body, /wp-content/);
-});
-
-test("root route handler — HEAD `/`", async () => {
-  const response = await ROOT_HEAD();
-  assert.equal(response.status, 200);
-  assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
-
-  const body = await response.text();
-  assert.equal(body, "");
-});
 
 test("legacy catch-all route handler", async (t) => {
   await t.test("GET serves a real non-root legacy document raw as text/html", async () => {

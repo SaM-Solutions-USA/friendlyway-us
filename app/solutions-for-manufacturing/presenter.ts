@@ -3,7 +3,6 @@ import type { HubSpotFormConfig } from "@/components/shared/forms/hubspot-form";
 import type { ImageFeatureProps } from "@/components/shared/content/image-feature";
 import type { ImageGalleryProps } from "@/components/shared/content/image-gallery";
 import type { LogoMarqueeProps } from "@/components/shared/content/logo-marquee";
-import type { CallToActionBannerProps } from "@/components/solutions/call-to-action-banner";
 import type { BenefitIconGridProps } from "@/components/solutions/benefit-icon-grid";
 import type { CustomerStoryGridProps } from "@/components/solutions/customer-story-grid";
 import type { ManufacturingChallengesProps } from "@/components/solutions/manufacturing-challenges";
@@ -35,10 +34,6 @@ export function createRealLifeGalleryProps(content: ManufacturingContent): Image
 
 export function createHardwareOptionsProps(content: ManufacturingContent): ImageFeatureProps {
   return { ...content.hardwareOptions, preserveMediaWidth: true };
-}
-
-export function createDemoProps(content: ManufacturingContent): CallToActionBannerProps {
-  return content.demo;
 }
 
 export function createChallengesProps(content: ManufacturingContent): ManufacturingChallengesProps {

@@ -21,6 +21,12 @@
   font-weight: 500;
 }
 
+.root.plain {
+  font-size: inherit;
+  line-height: inherit;
+  padding-top: 0;
+}
+
 @media (max-width: 575px) {
   .root {
     font-size: 14px;
